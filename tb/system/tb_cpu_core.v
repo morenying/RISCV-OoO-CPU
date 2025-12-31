@@ -87,13 +87,13 @@ module tb_cpu_core;
     // Memory Model
     //=========================================================
     reg [7:0] memory [0:MEM_SIZE-1];
+    integer mem_init_i;
     
     // Initialize memory with test program
     initial begin
-        integer i;
         // Clear memory
-        for (i = 0; i < MEM_SIZE; i = i + 1) begin
-            memory[i] = 8'h00;
+        for (mem_init_i = 0; mem_init_i < MEM_SIZE; mem_init_i = mem_init_i + 1) begin
+            memory[mem_init_i] = 8'h00;
         end
         
         // Load test program (simple test)

@@ -148,7 +148,7 @@
     - 集成TAGE + BTB + RAS + Loop Predictor
     - GHR管理和检查点
     - _Requirements: 7.9, 7.10_
-  - [ ] 9.8 编写分支预测属性测试
+  - [x] 9.8 编写分支预测属性测试
     - **Property 9: Branch Prediction Recovery**
     - **Validates: Requirements 7.6**
 
@@ -164,7 +164,7 @@
     - 写回写分配策略
     - 支持字节/半字/字访问
     - _Requirements: 9.1, 9.2, 9.3, 9.4, 9.5_
-  - [ ] 10.3 编写Cache属性测试
+  - [x] 10.3 编写Cache属性测试
     - **Property 10: Cache Coherence**
     - **Validates: Requirements 8.1, 8.2, 9.1, 9.2**
 
@@ -183,7 +183,7 @@
     - 集成Load Queue和Store Queue
     - 内存顺序违例检测
     - _Requirements: 10.6_
-  - [ ] 11.4 编写LSQ属性测试
+  - [x] 11.4 编写LSQ属性测试
     - **Property 11: Store-to-Load Forwarding**
     - **Property 12: Memory Ordering**
     - **Validates: Requirements 10.2, 10.3, 10.4**
@@ -203,7 +203,7 @@
     - 流水线冲刷控制
     - PC重定向
     - _Requirements: 6.2, 6.3_
-  - [ ] 13.3 编写异常处理属性测试
+  - [x] 13.3 编写异常处理属性测试
     - **Property 8: Precise Exception**
     - **Validates: Requirements 6.1, 6.2, 6.3, 6.4, 6.5**
 
@@ -244,14 +244,14 @@
     - 物理寄存器释放
     - _Requirements: 2.1, 2.9_
 
-- [ ] 15. 流水线控制
+- [x] 15. 流水线控制
   - [x] 15.1 实现流水线控制器 (pipeline_ctrl.v)
     - 停顿信号生成
     - 冲刷信号生成
     - 分支误预测恢复
     - 异常处理协调
     - _Requirements: 12.1, 12.2, 12.3, 12.4, 12.5, 12.6_
-  - [ ] 15.2 编写流水线控制属性测试
+  - [x] 15.2 编写流水线控制属性测试
     - **Property 14: Pipeline Stall Correctness**
     - **Validates: Requirements 12.1, 12.2, 12.3**
 
@@ -282,7 +282,7 @@
     - 初始化所有状态
     - PC设置为复位向量
     - _Requirements: 15.1, 15.3, 15.4_
-  - [ ] 18.3 编写复位属性测试
+  - [x] 18.3 编写复位属性测试
     - **Property 15: Reset State**
     - **Validates: Requirements 15.1, 15.2, 15.3, 15.4**
 
@@ -309,31 +309,31 @@
     - 时钟和复位生成
     - AXI从设备模拟（内存）
     - 测试结果检查
-  - [ ] 21.2 编写基础指令测试
+  - [x] 21.2 编写基础指令测试
     - 测试所有RV32I指令
     - 测试所有RV32M指令
     - 测试CSR指令
     - _Requirements: 1.1, 1.2, 1.3_
-  - [ ] 21.3 编写指令执行属性测试
+  - [x] 21.3 编写指令执行属性测试
     - **Property 1: Instruction Execution Correctness**
     - **Validates: Requirements 1.1, 1.2, 1.3**
-  - [ ] 21.4 编写分支和跳转测试
+  - [x] 21.4 编写分支和跳转测试
     - 测试所有分支条件
     - 测试JAL/JALR
     - 测试分支预测恢复
     - _Requirements: 1.1, 7.6_
-  - [ ] 21.5 编写异常测试
+  - [x] 21.5 编写异常测试
     - 测试非法指令异常
     - 测试地址未对齐异常
     - 测试ECALL/EBREAK
     - _Requirements: 6.3_
-  - [ ] 21.6 编写内存访问测试
+  - [x] 21.6 编写内存访问测试
     - 测试Load/Store各种大小
     - 测试Store-to-Load转发
     - 测试Cache命中/缺失
     - _Requirements: 1.1, 10.3_
 
-- [ ] 22. Final Checkpoint - 完整系统验证
+- [x] 22. Final Checkpoint - 完整系统验证
   - 运行所有测试确保通过
   - 如有问题请询问用户
 

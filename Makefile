@@ -207,6 +207,83 @@ ifeq ($(SIM),iverilog)
 endif
 
 #==============================================================================
+# Cache Property Tests
+#==============================================================================
+
+.PHONY: test_cache
+test_cache: dirs
+ifeq ($(SIM),iverilog)
+	$(IVERILOG) $(IV_FLAGS) -o $(SIM_DIR)/test_cache.vvp \
+		$(RTL_DIR)/common/cpu_defines.vh \
+		$(RTL_DIR)/cache/icache.v \
+		$(RTL_DIR)/cache/dcache.v \
+		$(TB_DIR)/unit/tb_cache.v
+	$(VVP) $(SIM_DIR)/test_cache.vvp | tee $(LOG_DIR)/test_cache.log
+endif
+
+#==============================================================================
+# LSQ Property Tests
+#==============================================================================
+
+.PHONY: test_lsq
+test_lsq: dirs
+ifeq ($(SIM),iverilog)
+	$(IVERILOG) $(IV_FLAGS) -o $(SIM_DIR)/test_lsq.vvp \
+		$(RTL_DIR)/common/cpu_defines.vh \
+		$(RTL_DIR)/mem/load_queue.v \
+		$(RTL_DIR)/mem/store_queue.v \
+		$(RTL_DIR)/mem/lsq.v \
+		$(TB_DIR)/unit/tb_lsq.v
+	$(VVP) $(SIM_DIR)/test_lsq.vvp | tee $(LOG_DIR)/test_lsq.log
+endif
+
+#==============================================================================
+# Exception Property Tests
+#==============================================================================
+
+.PHONY: test_exception
+test_exception: dirs
+ifeq ($(SIM),iverilog)
+	$(IVERILOG) $(IV_FLAGS) -o $(SIM_DIR)/test_exception.vvp \
+		$(RTL_DIR)/common/cpu_defines.vh \
+		$(RTL_DIR)/core/exception_unit.v \
+		$(TB_DIR)/unit/tb_exception.v
+	$(VVP) $(SIM_DIR)/test_exception.vvp | tee $(LOG_DIR)/test_exception.log
+endif
+
+#==============================================================================
+# Pipeline Control Property Tests
+#==============================================================================
+
+.PHONY: test_pipeline_ctrl
+test_pipeline_ctrl: dirs
+ifeq ($(SIM),iverilog)
+	$(IVERILOG) $(IV_FLAGS) -o $(SIM_DIR)/test_pipeline_ctrl.vvp \
+		$(RTL_DIR)/common/cpu_defines.vh \
+		$(RTL_DIR)/core/pipeline_ctrl.v \
+		$(TB_DIR)/unit/tb_pipeline_ctrl.v
+	$(VVP) $(SIM_DIR)/test_pipeline_ctrl.vvp | tee $(LOG_DIR)/test_pipeline_ctrl.log
+endif
+
+#==============================================================================
+# Integration Tests
+#==============================================================================
+
+.PHONY: test_instr
+test_instr: dirs
+ifeq ($(SIM),iverilog)
+	$(IVERILOG) $(IV_FLAGS) -o $(SIM_DIR)/test_instr.vvp \
+		$(RTL_DIR)/common/cpu_defines.vh \
+		$(RTL_DIR)/core/*.v \
+		$(RTL_DIR)/cache/*.v \
+		$(RTL_DIR)/bpu/*.v \
+		$(RTL_DIR)/mem/*.v \
+		$(RTL_DIR)/bus/*.v \
+		$(TB_DIR)/integration/tb_instr_tests.v
+	$(VVP) $(SIM_DIR)/test_instr.vvp | tee $(LOG_DIR)/test_instr.log
+endif
+
+#==============================================================================
 # System Tests
 #==============================================================================
 
@@ -226,8 +303,8 @@ endif
 #==============================================================================
 
 .PHONY: test_all
-test_all: test_alu test_mul test_div test_decoder test_rob test_rs test_rat \
-          test_icache test_dcache test_tage test_bpu test_cpu
+test_all: test_alu test_mul test_div test_decoder test_bpu test_cache \
+          test_lsq test_exception test_pipeline_ctrl test_instr test_cpu
 	@echo "All tests completed."
 
 #==============================================================================
@@ -260,21 +337,26 @@ help:
 	@echo "Usage: make [target] [SIM=iverilog|verilator]"
 	@echo ""
 	@echo "Targets:"
-	@echo "  all          - Create directory structure (default)"
-	@echo "  dirs         - Create directory structure"
-	@echo "  test_alu     - Run ALU unit test"
-	@echo "  test_mul     - Run multiplier unit test"
-	@echo "  test_div     - Run divider unit test"
-	@echo "  test_decoder - Run decoder test"
-	@echo "  test_rob     - Run ROB test"
-	@echo "  test_rs      - Run reservation station test"
-	@echo "  test_rat     - Run RAT test"
-	@echo "  test_icache  - Run I-Cache test"
-	@echo "  test_dcache  - Run D-Cache test"
-	@echo "  test_tage    - Run TAGE predictor test"
-	@echo "  test_bpu     - Run BPU test"
-	@echo "  test_cpu     - Run full CPU test"
-	@echo "  test_all     - Run all tests"
-	@echo "  lint         - Run Verilator lint"
-	@echo "  clean        - Clean simulation files"
-	@echo "  help         - Show this help"
+	@echo "  all              - Create directory structure (default)"
+	@echo "  dirs             - Create directory structure"
+	@echo ""
+	@echo "Unit Tests:"
+	@echo "  test_alu         - Run ALU unit test"
+	@echo "  test_mul         - Run multiplier unit test"
+	@echo "  test_div         - Run divider unit test"
+	@echo "  test_decoder     - Run decoder test"
+	@echo "  test_bpu         - Run BPU property test"
+	@echo "  test_cache       - Run Cache property test"
+	@echo "  test_lsq         - Run LSQ property test"
+	@echo "  test_exception   - Run Exception property test"
+	@echo "  test_pipeline_ctrl - Run Pipeline Control property test"
+	@echo ""
+	@echo "Integration Tests:"
+	@echo "  test_instr       - Run instruction execution tests"
+	@echo "  test_cpu         - Run full CPU system test"
+	@echo ""
+	@echo "Other:"
+	@echo "  test_all         - Run all tests"
+	@echo "  lint             - Run Verilator lint"
+	@echo "  clean            - Clean simulation files"
+	@echo "  help             - Show this help"

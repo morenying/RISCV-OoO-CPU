@@ -140,9 +140,12 @@ module dcache #(
     //=========================================================
     // Output Logic
     //=========================================================
-    assign req_ready_o = (state == IDLE) && !flush_i;
-    assign resp_valid_o = (state == IDLE) && req_valid_i && cache_hit && !flush_i;
-    assign resp_data_o = read_data;
+    reg refill_done;  // Indicates refill completed, need to signal response
+    reg [DATA_WIDTH-1:0] refill_resp_data;  // Data to return after refill
+    
+    assign req_ready_o = (state == IDLE) && !flush_i && !refill_done;
+    assign resp_valid_o = ((state == IDLE) && req_valid_i && cache_hit && !flush_i) || refill_done;
+    assign resp_data_o = refill_done ? refill_resp_data : read_data;
     
     // Memory interface
     reg mem_req_valid_reg;
@@ -212,6 +215,8 @@ module dcache #(
             mem_req_write_reg <= 0;
             mem_req_addr_reg <= 0;
             mem_req_wdata_reg <= 0;
+            refill_done <= 0;
+            refill_resp_data <= 0;
             
             for (i = 0; i < NUM_SETS; i = i + 1) begin
                 for (j = 0; j < NUM_WAYS; j = j + 1) begin
@@ -223,6 +228,11 @@ module dcache #(
                 lru[i] <= 1'b0;
             end
         end else begin
+            // Clear refill_done after one cycle
+            if (refill_done) begin
+                refill_done <= 1'b0;
+            end
+            
             case (state)
                 IDLE: begin
                     mem_req_valid_reg <= 0;
@@ -263,16 +273,19 @@ module dcache #(
                 
                 WRITEBACK: begin
                     // Send writeback request
-                    mem_req_valid_reg <= 1;
-                    mem_req_write_reg <= 1;
-                    mem_req_addr_reg <= {tag[miss_addr[INDEX_BITS+OFFSET_BITS-1:OFFSET_BITS]][replace_way],
-                                         miss_addr[INDEX_BITS+OFFSET_BITS-1:OFFSET_BITS],
-                                         {OFFSET_BITS{1'b0}}};
-                    mem_req_wdata_reg <= data[miss_addr[INDEX_BITS+OFFSET_BITS-1:OFFSET_BITS]][replace_way];
-                    
-                    if (mem_req_ready_i) begin
-                        state <= WB_WAIT;
-                        mem_req_valid_reg <= 0;
+                    // Only check ready when valid is already asserted
+                    if (mem_req_valid_reg) begin
+                        if (mem_req_ready_i) begin
+                            state <= WB_WAIT;
+                            mem_req_valid_reg <= 0;
+                        end
+                    end else begin
+                        mem_req_valid_reg <= 1;
+                        mem_req_write_reg <= 1;
+                        mem_req_addr_reg <= {tag[miss_addr[INDEX_BITS+OFFSET_BITS-1:OFFSET_BITS]][replace_way],
+                                             miss_addr[INDEX_BITS+OFFSET_BITS-1:OFFSET_BITS],
+                                             {OFFSET_BITS{1'b0}}};
+                        mem_req_wdata_reg <= data[miss_addr[INDEX_BITS+OFFSET_BITS-1:OFFSET_BITS]][replace_way];
                     end
                 end
                 
@@ -284,13 +297,16 @@ module dcache #(
                 
                 REFILL: begin
                     // Send refill request
-                    mem_req_valid_reg <= 1;
-                    mem_req_write_reg <= 0;
-                    mem_req_addr_reg <= {miss_addr[ADDR_WIDTH-1:OFFSET_BITS], {OFFSET_BITS{1'b0}}};
-                    
-                    if (mem_req_ready_i) begin
-                        state <= RF_WAIT;
-                        mem_req_valid_reg <= 0;
+                    // Only check ready when valid is already asserted
+                    if (mem_req_valid_reg) begin
+                        if (mem_req_ready_i) begin
+                            state <= RF_WAIT;
+                            mem_req_valid_reg <= 0;
+                        end
+                    end else begin
+                        mem_req_valid_reg <= 1;
+                        mem_req_write_reg <= 0;
+                        mem_req_addr_reg <= {miss_addr[ADDR_WIDTH-1:OFFSET_BITS], {OFFSET_BITS{1'b0}}};
                     end
                 end
                 
@@ -307,9 +323,16 @@ module dcache #(
                                 merge_write(mem_resp_data_i, miss_wdata,
                                            miss_addr[OFFSET_BITS-1:2], miss_addr[1:0], miss_size);
                             dirty[miss_addr[INDEX_BITS+OFFSET_BITS-1:OFFSET_BITS]][replace_way] <= 1'b1;
+                            // Signal write completion
+                            refill_done <= 1'b1;
+                            refill_resp_data <= 0;  // Write doesn't return data
                         end else begin
                             data[miss_addr[INDEX_BITS+OFFSET_BITS-1:OFFSET_BITS]][replace_way] <= mem_resp_data_i;
                             dirty[miss_addr[INDEX_BITS+OFFSET_BITS-1:OFFSET_BITS]][replace_way] <= 1'b0;
+                            // Signal read completion with data
+                            refill_done <= 1'b1;
+                            // Extract the requested word from refill data
+                            refill_resp_data <= mem_resp_data_i[miss_addr[OFFSET_BITS-1:2]*32 +: 32];
                         end
                         
                         lru[miss_addr[INDEX_BITS+OFFSET_BITS-1:OFFSET_BITS]] <= ~replace_way;
