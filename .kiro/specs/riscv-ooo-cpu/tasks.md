@@ -1,0 +1,346 @@
+# Implementation Plan: RISC-V Out-of-Order CPU
+
+## Overview
+
+本实现计划将RISC-V乱序执行CPU的设计分解为可执行的编码任务。采用自底向上的方式，先实现基础模块，再逐步集成到完整系统。使用Verilog 2001标准编写可综合代码。
+
+## Tasks
+
+- [x] 1. 项目结构和基础定义
+  - [x] 1.1 创建项目目录结构和Makefile
+    - 创建rtl/, tb/, sim/, doc/目录
+    - 创建Makefile支持Icarus Verilog/Verilator仿真
+    - _Requirements: 15.2_
+  - [x] 1.2 创建全局参数和类型定义文件
+    - 定义cpu_defines.vh包含所有参数常量
+    - 定义指令编码、ALU操作码、异常代码等
+    - _Requirements: 1.1, 1.2, 1.3_
+
+- [x] 2. 执行阶段功能单元
+  - [x] 2.1 实现ALU单元 (alu_unit.v)
+    - 实现12种ALU操作（ADD/SUB/SLL/SLT/SLTU/XOR/SRL/SRA/OR/AND/LUI/AUIPC）
+    - 单周期延迟
+    - _Requirements: 11.1, 1.1_
+  - [x] 2.2 编写ALU单元属性测试
+    - **Property 13: Functional Unit Correctness (ALU部分)**
+    - **Validates: Requirements 11.1**
+  - [x] 2.3 实现乘法单元 (mul_unit.v)
+    - 实现MUL/MULH/MULHSU/MULHU四种操作
+    - 3周期流水线延迟
+    - _Requirements: 11.2, 1.2_
+  - [x] 2.4 编写乘法单元属性测试
+    - **Property 13: Functional Unit Correctness (MUL部分)**
+    - **Validates: Requirements 11.2**
+  - [x] 2.5 实现除法单元 (div_unit.v)
+    - 实现DIV/DIVU/REM/REMU四种操作
+    - 非恢复余数除法，最多32周期
+    - 处理除零情况
+    - _Requirements: 11.3, 1.2_
+  - [x] 2.6 编写除法单元属性测试
+    - **Property 13: Functional Unit Correctness (DIV部分)**
+    - **Validates: Requirements 11.3**
+  - [x] 2.7 实现分支单元 (branch_unit.v)
+    - 实现6种分支条件判断
+    - 计算分支目标地址
+    - 检测分支预测错误
+    - _Requirements: 11.4, 1.1_
+  - [x] 2.8 实现地址生成单元 (agu_unit.v)
+    - 计算Load/Store地址
+    - 检测地址未对齐异常
+    - _Requirements: 11.5, 1.1_
+
+- [x] 3. Checkpoint - 功能单元验证
+  - 确保所有功能单元测试通过
+  - 如有问题请询问用户
+
+- [x] 4. 指令解码阶段
+  - [x] 4.1 实现立即数生成器 (imm_gen.v)
+    - 支持I/S/B/U/J五种立即数格式
+    - 正确进行符号扩展
+    - _Requirements: 2.3_
+  - [x] 4.2 实现指令解码器 (decoder.v)
+    - 解码所有RV32IM + Zicsr指令
+    - 生成控制信号
+    - 检测非法指令
+    - _Requirements: 2.3, 1.1, 1.2, 1.3, 1.4_
+  - [x] 4.3 编写解码器属性测试
+    - **Property 1: Instruction Execution Correctness (解码部分)**
+    - **Property 3: Invalid Opcode Exception**
+    - **Validates: Requirements 1.1, 1.2, 1.3, 1.4**
+
+- [x] 5. 寄存器重命名模块
+  - [x] 5.1 实现空闲列表 (free_list.v)
+    - FIFO结构管理64个物理寄存器
+    - 支持分配和释放操作
+    - _Requirements: 3.2, 3.3, 3.4_
+  - [x] 5.2 实现寄存器别名表 (rat.v)
+    - 32项架构寄存器到物理寄存器映射
+    - 支持检查点创建和恢复
+    - x0始终映射到P0且ready
+    - _Requirements: 3.1, 3.5, 3.6, 1.5_
+  - [x] 5.3 编写寄存器重命名属性测试
+    - **Property 2: x0 Hardwired Zero Invariant**
+    - **Property 4: Register Rename Round-Trip**
+    - **Property 5: RAT Checkpoint Recovery**
+    - **Validates: Requirements 1.5, 3.3, 3.4, 3.5**
+  - [x] 5.4 实现物理寄存器文件 (prf.v)
+    - 64个32位寄存器
+    - 4读2写端口
+    - _Requirements: 3.2_
+
+- [x] 6. 指令调度模块
+  - [x] 6.1 实现保留站 (reservation_station.v)
+    - 参数化项数
+    - CDB监听和操作数捕获
+    - 最老优先发射选择
+    - _Requirements: 4.1, 4.2, 4.3, 4.4_
+  - [x] 6.2 编写保留站属性测试
+    - **Property 6: Data Forwarding Correctness**
+    - **Validates: Requirements 4.2, 4.3, 5.1, 5.2**
+  - [x] 6.3 实现重排序缓冲区 (rob.v)
+    - 32项循环队列
+    - 支持分配、完成、提交操作
+    - 记录异常信息
+    - _Requirements: 4.5, 4.6, 6.1_
+  - [x] 6.4 编写ROB属性测试
+    - **Property 7: In-Order Commit**
+    - **Validates: Requirements 4.6**
+
+- [x] 7. Checkpoint - 调度模块验证
+  - 确保保留站和ROB测试通过
+  - 如有问题请询问用户
+
+- [x] 8. 公共数据总线
+  - [x] 8.1 实现CDB仲裁器 (cdb.v)
+    - 6个输入源仲裁
+    - 固定优先级策略
+    - 广播结果到所有监听者
+    - _Requirements: 5.1, 5.3, 11.6_
+
+- [x] 9. 分支预测单元
+  - [x] 9.1 实现Bimodal基础预测器 (bimodal_predictor.v)
+    - 2048项2位饱和计数器
+    - PC索引
+    - _Requirements: 7.1_
+  - [x] 9.2 实现TAGE标签表 (tage_table.v)
+    - 256项带标签表
+    - 3位预测计数器 + 2位有用计数器 + 部分标签
+    - 参数化历史长度
+    - _Requirements: 7.1, 7.2_
+  - [x] 9.3 实现TAGE预测器顶层 (tage_predictor.v)
+    - 集成bimodal + 4个标签表
+    - 并行查询和提供者选择
+    - 更新逻辑
+    - _Requirements: 7.1, 7.2, 7.3, 7.4_
+  - [x] 9.4 实现分支目标缓冲 (btb.v)
+    - 512项2路组相联
+    - 分支类型字段
+    - _Requirements: 7.5_
+  - [x] 9.5 实现返回地址栈 (ras.v)
+    - 16项栈
+    - 支持检查点恢复
+    - _Requirements: 7.7_
+  - [x] 9.6 实现循环预测器 (loop_predictor.v)
+    - 32项循环检测
+    - 迭代计数器
+    - _Requirements: 7.8_
+  - [x] 9.7 实现BPU顶层 (bpu.v)
+    - 集成TAGE + BTB + RAS + Loop Predictor
+    - GHR管理和检查点
+    - _Requirements: 7.9, 7.10_
+  - [ ] 9.8 编写分支预测属性测试
+    - **Property 9: Branch Prediction Recovery**
+    - **Validates: Requirements 7.6**
+
+- [x] 10. 缓存子系统
+  - [x] 10.1 实现I-Cache (icache.v)
+    - 4KB直接映射
+    - 32字节行
+    - 支持FENCE.I无效化
+    - _Requirements: 8.1, 8.2, 8.3, 8.4_
+  - [x] 10.2 实现D-Cache (dcache.v)
+    - 4KB 2路组相联
+    - LRU替换
+    - 写回写分配策略
+    - 支持字节/半字/字访问
+    - _Requirements: 9.1, 9.2, 9.3, 9.4, 9.5_
+  - [ ] 10.3 编写Cache属性测试
+    - **Property 10: Cache Coherence**
+    - **Validates: Requirements 8.1, 8.2, 9.1, 9.2**
+
+- [x] 11. Load/Store队列
+  - [x] 11.1 实现Load队列 (load_queue.v)
+    - 8项队列
+    - Store Queue地址检查
+    - 支持Store-to-Load转发
+    - _Requirements: 10.1, 10.2, 10.3, 10.5_
+  - [x] 11.2 实现Store队列 (store_queue.v)
+    - 8项队列
+    - 按序提交写入
+    - 地址转发接口
+    - _Requirements: 10.1, 10.4_
+  - [x] 11.3 实现LSQ顶层 (lsq.v)
+    - 集成Load Queue和Store Queue
+    - 内存顺序违例检测
+    - _Requirements: 10.6_
+  - [ ] 11.4 编写LSQ属性测试
+    - **Property 11: Store-to-Load Forwarding**
+    - **Property 12: Memory Ordering**
+    - **Validates: Requirements 10.2, 10.3, 10.4**
+
+- [x] 12. Checkpoint - 存储子系统验证
+  - 确保Cache和LSQ测试通过
+  - 如有问题请询问用户
+
+- [x] 13. CSR和异常处理
+  - [x] 13.1 实现CSR单元 (csr_unit.v)
+    - 实现mstatus, misa, mie, mtvec, mscratch, mepc, mcause, mtval, mip等CSR
+    - 支持CSRRW/CSRRS/CSRRC/CSRRWI/CSRRSI/CSRRCI操作
+    - 中断挂起检测
+    - _Requirements: 6.4, 6.5, 1.3_
+  - [x] 13.2 实现异常处理单元 (exception_unit.v)
+    - 异常优先级处理
+    - 流水线冲刷控制
+    - PC重定向
+    - _Requirements: 6.2, 6.3_
+  - [ ] 13.3 编写异常处理属性测试
+    - **Property 8: Precise Exception**
+    - **Validates: Requirements 6.1, 6.2, 6.3, 6.4, 6.5**
+
+- [x] 14. 流水线阶段集成
+  - [x] 14.1 实现IF阶段 (if_stage.v)
+    - PC寄存器
+    - I-Cache接口
+    - BPU接口
+    - IF/ID流水线寄存器
+    - _Requirements: 2.1, 2.2_
+  - [x] 14.2 实现ID阶段 (id_stage.v)
+    - 指令解码
+    - 控制信号生成
+    - ID/RN流水线寄存器
+    - _Requirements: 2.1, 2.3_
+  - [x] 14.3 实现RN阶段 (rn_stage.v)
+    - 寄存器重命名
+    - ROB分配
+    - RN/IS流水线寄存器
+    - _Requirements: 2.1, 2.4_
+  - [x] 14.4 实现IS阶段 (is_stage.v)
+    - 保留站分配
+    - 操作数读取
+    - 指令发射
+    - _Requirements: 2.1, 2.5, 2.6_
+  - [x] 14.5 实现EX阶段 (ex_stage.v)
+    - 功能单元调度
+    - 结果收集
+    - CDB广播
+    - _Requirements: 2.1, 2.7_
+  - [x] 14.6 实现MEM阶段 (mem_stage.v)
+    - D-Cache接口
+    - LSQ管理
+    - _Requirements: 2.1, 2.8_
+  - [x] 14.7 实现WB阶段 (wb_stage.v)
+    - ROB提交逻辑
+    - ARF更新
+    - 物理寄存器释放
+    - _Requirements: 2.1, 2.9_
+
+- [ ] 15. 流水线控制
+  - [x] 15.1 实现流水线控制器 (pipeline_ctrl.v)
+    - 停顿信号生成
+    - 冲刷信号生成
+    - 分支误预测恢复
+    - 异常处理协调
+    - _Requirements: 12.1, 12.2, 12.3, 12.4, 12.5, 12.6_
+  - [ ] 15.2 编写流水线控制属性测试
+    - **Property 14: Pipeline Stall Correctness**
+    - **Validates: Requirements 12.1, 12.2, 12.3**
+
+- [x] 16. Checkpoint - 流水线集成验证
+  - 确保各阶段正确连接
+  - 如有问题请询问用户
+
+- [x] 17. AXI总线接口
+  - [x] 17.1 实现AXI指令总线主接口 (axi_master_ibus.v)
+    - AXI4-Lite读通道
+    - 支持突发传输（cache line fill）
+    - _Requirements: 13.1, 13.3, 13.4_
+  - [x] 17.2 实现AXI数据总线主接口 (axi_master_dbus.v)
+    - AXI4-Lite读写通道
+    - 支持突发传输
+    - 总线错误处理
+    - _Requirements: 13.2, 13.3, 13.4, 13.5_
+
+- [x] 18. CPU顶层集成
+  - [x] 18.1 实现CPU核心顶层 (cpu_core_top.v)
+    - 集成所有流水线阶段
+    - 集成BPU、Cache、LSQ
+    - 集成CSR和异常处理
+    - 连接AXI接口
+    - _Requirements: 2.1_
+  - [x] 18.2 实现复位逻辑
+    - 同步复位
+    - 初始化所有状态
+    - PC设置为复位向量
+    - _Requirements: 15.1, 15.3, 15.4_
+  - [ ] 18.3 编写复位属性测试
+    - **Property 15: Reset State**
+    - **Validates: Requirements 15.1, 15.2, 15.3, 15.4**
+
+- [x] 19. 调试支持
+  - [x] 19.1 实现调试CSR (debug_csr.v)
+    - dcsr, dpc, dscratch寄存器
+    - 单步执行支持
+    - _Requirements: 14.1, 14.3_
+  - [x] 19.2 实现调试控制逻辑 (debug_ctrl.v)
+    - EBREAK处理
+    - 调试模式进入/退出
+    - _Requirements: 14.2_
+  - [x] 19.3 添加仿真可见性信号
+    - 关键内部信号导出
+    - 性能计数器
+    - _Requirements: 14.4_
+
+- [x] 20. Checkpoint - 顶层集成验证
+  - 确保CPU顶层正确集成
+  - 如有问题请询问用户
+
+- [x] 21. 系统级测试
+  - [x] 21.1 创建基础测试平台 (tb_cpu_core.v)
+    - 时钟和复位生成
+    - AXI从设备模拟（内存）
+    - 测试结果检查
+  - [ ] 21.2 编写基础指令测试
+    - 测试所有RV32I指令
+    - 测试所有RV32M指令
+    - 测试CSR指令
+    - _Requirements: 1.1, 1.2, 1.3_
+  - [ ] 21.3 编写指令执行属性测试
+    - **Property 1: Instruction Execution Correctness**
+    - **Validates: Requirements 1.1, 1.2, 1.3**
+  - [ ] 21.4 编写分支和跳转测试
+    - 测试所有分支条件
+    - 测试JAL/JALR
+    - 测试分支预测恢复
+    - _Requirements: 1.1, 7.6_
+  - [ ] 21.5 编写异常测试
+    - 测试非法指令异常
+    - 测试地址未对齐异常
+    - 测试ECALL/EBREAK
+    - _Requirements: 6.3_
+  - [ ] 21.6 编写内存访问测试
+    - 测试Load/Store各种大小
+    - 测试Store-to-Load转发
+    - 测试Cache命中/缺失
+    - _Requirements: 1.1, 10.3_
+
+- [ ] 22. Final Checkpoint - 完整系统验证
+  - 运行所有测试确保通过
+  - 如有问题请询问用户
+
+## Notes
+
+- 所有任务均为必需，包括测试任务
+- 每个任务引用具体的需求条款以确保可追溯性
+- Checkpoint任务用于阶段性验证，确保增量开发质量
+- 属性测试验证设计文档中定义的正确性属性
+- 单元测试验证具体示例和边界情况
