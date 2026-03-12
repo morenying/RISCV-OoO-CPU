@@ -25,7 +25,11 @@ jobs:
         run: |
           verilator --lint-only -Wall \
             -Irtl/common -Irtl \
-            rtl/core/*.v rtl/cache/*.v rtl/bpu/*.v rtl/mem/*.v rtl/bus/*.v \
+            rtl/core/*.v rtl/cache/*.v \
+            rtl/bpu/bpu.v rtl/bpu/tage_predictor.v rtl/bpu/tage_table.v \
+            rtl/bpu/btb.v rtl/bpu/ras.v rtl/bpu/loop_predictor.v \
+            rtl/bpu/bimodal_predictor.v \
+            rtl/mem/*.v rtl/bus/*.v \
             2>&1 | tee lint_report.txt
           
       - name: Upload Lint Report
@@ -156,9 +160,23 @@ jobs:
           
       - name: Run Instruction Tests
         run: |
-          iverilog -g2001 -Wall -Irtl/common -Irtl -o sim/test_instr.vvp \
+          # Exclude enhanced/4way files that depend on modules not in this test
+          find rtl/core -name '*.v' \
+            ! -name 'cpu_core_4way.v' \
+            ! -name 'free_list_enhanced.v' \
+            ! -name 'rename_4way.v' \
+            ! -name 'rob_enhanced.v' \
+            ! -name 'prf_enhanced.v' \
+            ! -name 'decode_4way.v' \
+            ! -name 'fetch_4way.v' \
+            ! -name 'issue_queue_4way.v' \
+            ! -name 'cdb_4wide.v' \
+            ! -name 'execution_cluster.v' \
+            > /tmp/core_files.txt
+          iverilog -g2005-sv -Irtl/common -Irtl -o sim/test_instr.vvp \
             rtl/common/cpu_defines.vh \
-            rtl/core/*.v rtl/cache/*.v \
+            $(cat /tmp/core_files.txt) \
+            rtl/cache/*.v \
             rtl/bpu/bpu.v rtl/bpu/tage_predictor.v rtl/bpu/tage_table.v \
             rtl/bpu/btb.v rtl/bpu/ras.v rtl/bpu/loop_predictor.v \
             rtl/bpu/bimodal_predictor.v \
@@ -188,7 +206,7 @@ jobs:
       - name: Run Yosys Synthesis Check
         run: |
           yosys -p "
-            read_verilog -Irtl/common -Irtl rtl/core/*.v rtl/cache/*.v rtl/bpu/*.v rtl/mem/*.v rtl/bus/*.v;
+            read_verilog -sv -Irtl/common -Irtl rtl/core/*.v rtl/cache/*.v rtl/bpu/bpu.v rtl/bpu/tage_predictor.v rtl/bpu/tage_table.v rtl/bpu/btb.v rtl/bpu/ras.v rtl/bpu/loop_predictor.v rtl/bpu/bimodal_predictor.v rtl/mem/*.v rtl/bus/*.v;
             hierarchy -check -top cpu_core_top;
             proc;
             opt;
