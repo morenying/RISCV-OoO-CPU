@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg10" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/><stop offset="50%" style="stop-color:#0d2040"/><stop offset="100%" style="stop-color:#051a1a"/>
+    </linearGradient>
+    <linearGradient id="au10" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00aaff;stop-opacity:0"/><stop offset="50%" style="stop-color:#00ccff;stop-opacity:0.5"/><stop offset="100%" style="stop-color:#00ffaa;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="g10"><feGaussianBlur stdDeviation="2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg10)"/>
+  <g opacity="0.7">
+    <circle cx="40" cy="30" r="1.5" fill="#fff"/><circle cx="150" cy="50" r="1" fill="#adf"/><circle cx="300" cy="25" r="2" fill="#fff"/>
+    <circle cx="500" cy="45" r="1" fill="#8cf"/><circle cx="650" cy="35" r="1.5" fill="#fff"/><circle cx="760" cy="55" r="1" fill="#adf"/>
+    <circle cx="80" cy="420" r="1" fill="#fff"/><circle cx="400" cy="430" r="1.5" fill="#adf"/><circle cx="720" cy="425" r="1" fill="#8cf"/>
+  </g>
+  <ellipse cx="400" cy="60" rx="300" ry="40" fill="url(#au10)" opacity="0.4"/>
+  
+  <text x="400" y="55" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="32" fill="#00ccff" filter="url(#g10)">D-Cache 数据缓存</text>
+  <text x="400" y="85" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#00aaff">Data Cache · 4KB 4路组相联 写回式</text>
+  
+  <g transform="translate(40, 115)">
+    <rect x="0" y="0" width="200" height="180" rx="10" fill="rgba(0,80,100,0.3)" stroke="#00aaff" stroke-width="1.5"/>
+    <text x="100" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ccff">基本参数</text>
+    <line x1="10" y1="35" x2="190" y2="35" stroke="#00aaff" opacity="0.3"/>
+    <text x="15" y="58" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 容量: 4KB</text>
+    <text x="15" y="78" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 组织: 4路组相联</text>
+    <text x="15" y="98" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 块大小: 32字节</text>
+    <text x="15" y="118" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 写策略: 写回式</text>
+    <text x="15" y="138" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 分配: 写分配</text>
+    <text x="15" y="158" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 替换: LRU</text>
+  </g>
+  
+  <g transform="translate(260, 115)">
+    <rect x="0" y="0" width="280" height="180" rx="10" fill="rgba(80,60,0,0.3)" stroke="#ccaa00" stroke-width="1.5"/>
+    <text x="140" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#ddbb44">缓存行结构</text>
+    <line x1="10" y1="35" x2="270" y2="35" stroke="#ccaa00" opacity="0.3"/>
+    
+    <g transform="translate(15, 50)">
+      <rect x="0" y="0" width="250" height="30" rx="4" fill="rgba(204,170,0,0.15)" stroke="#ccaa00"/>
+      <text x="5" y="20" font-family="monospace" font-size="9" fill="#eeddbb">Valid | Dirty | Tag[19:0] | Data[255:0]</text>
+    </g>
+    
+    <text x="15" y="105" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#eeddbb">• Valid: 有效位</text>
+    <text x="15" y="125" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#eeddbb">• Dirty: 脏位 (写回标记)</text>
+    <text x="15" y="145" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#eeddbb">• Tag: 20位地址标签</text>
+    <text x="15" y="165" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#eeddbb">• Data: 32字节数据</text>
+  </g>
+  
+  <g transform="translate(560, 115)">
+    <rect x="0" y="0" width="200" height="180" rx="10" fill="rgba(0,100,80,0.3)" stroke="#00ffaa" stroke-width="1.5"/>
+    <text x="100" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ffcc">访问类型</text>
+    <line x1="10" y1="35" x2="190" y2="35" stroke="#00ffaa" opacity="0.3"/>
+    <text x="15" y="58" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• LB/LBU: 字节读</text>
+    <text x="15" y="78" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• LH/LHU: 半字读</text>
+    <text x="15" y="98" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• LW: 字读</text>
+    <text x="15" y="118" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffccdd">• SB: 字节写</text>
+    <text x="15" y="138" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffccdd">• SH: 半字写</text>
+    <text x="15" y="158" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffccdd">• SW: 字写</text>
+  </g>
+  
+  <g transform="translate(40, 310)">
+    <rect x="0" y="0" width="720" height="100" rx="8" fill="rgba(0,40,60,0.25)" stroke="#00aaff" stroke-width="1"/>
+    <text x="360" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#00ccff">读写流程</text>
+    <text x="20" y="50" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">读命中: 地址 → Tag比较 → 命中 → 返回数据 (1周期)</text>
+    <text x="20" y="70" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#eeddbb">写命中: 地址 → Tag比较 → 命中 → 写入数据 + 置Dirty位</text>
+    <text x="20" y="90" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffaaaa">缺失: 若Dirty则先写回 → 从内存读取 → 填充缓存 → 完成访问</text>
+  </g>
+  
+  <text x="400" y="435" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#668888" opacity="0.7">D-Cache · 数据缓存</text>
+</svg>

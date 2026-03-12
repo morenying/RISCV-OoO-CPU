@@ -1,0 +1,40 @@
+[*]
+[*] GTKWave Analyzer - CPI Benchmark
+[*]
+[dumpfile] "sim/waves/cpi_benchmark.vcd"
+[savefile] "tb/perf/cpi_benchmark.gtkw"
+[timestart] 0
+[size] 1400 800
+[pos] -1 -1
+*-16.000000 25 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_cpi_benchmark.
+[sst_width] 250
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@28
+tb_cpi_benchmark.clk
+tb_cpi_benchmark.rst_n
+@200
+-Performance Counters
+@25
+tb_cpi_benchmark.cycle_count[31:0]
+tb_cpi_benchmark.instr_count[31:0]
+@200
+-Test Control
+@22
+tb_cpi_benchmark.test_scenario[3:0]
+@28
+tb_cpi_benchmark.forwarding_enabled
+tb_cpi_benchmark.ooo_enabled
+@200
+-Pipeline Events
+@28
+tb_cpi_benchmark.instr_valid
+tb_cpi_benchmark.instr_commit
+tb_cpi_benchmark.stall
+tb_cpi_benchmark.cache_miss
+tb_cpi_benchmark.branch_mispredict
+tb_cpi_benchmark.data_hazard
+[pattern_trace] 1
+[pattern_trace] 0

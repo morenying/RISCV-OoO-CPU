@@ -53,9 +53,10 @@ module bimodal_predictor #(
     //=========================================================
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
-            // Initialize all counters to weakly taken (2'b10)
+            // Initialize all counters to weakly not-taken (2'b01)
+            // This prevents false branch predictions for non-branch instructions
             for (i = 0; i < NUM_ENTRIES; i = i + 1) begin
-                counters[i] <= 2'b10;
+                counters[i] <= 2'b01;
             end
         end else if (update_valid_i) begin
             // Saturating counter update

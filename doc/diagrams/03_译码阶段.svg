@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/><stop offset="50%" style="stop-color:#0d2040"/><stop offset="100%" style="stop-color:#051a1a"/>
+    </linearGradient>
+    <linearGradient id="au3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00aaff;stop-opacity:0"/><stop offset="50%" style="stop-color:#00ddff;stop-opacity:0.5"/><stop offset="100%" style="stop-color:#00ff88;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="g3"><feGaussianBlur stdDeviation="2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg3)"/>
+  <g opacity="0.7">
+    <circle cx="40" cy="30" r="1.5" fill="#fff"/><circle cx="150" cy="50" r="1" fill="#adf"/><circle cx="300" cy="25" r="2" fill="#fff"/>
+    <circle cx="500" cy="45" r="1" fill="#8cf"/><circle cx="650" cy="35" r="1.5" fill="#fff"/><circle cx="760" cy="55" r="1" fill="#adf"/>
+    <circle cx="80" cy="420" r="1" fill="#fff"/><circle cx="400" cy="430" r="1.5" fill="#adf"/><circle cx="720" cy="425" r="1" fill="#8cf"/>
+  </g>
+  <ellipse cx="400" cy="60" rx="300" ry="40" fill="url(#au3)" opacity="0.4"/>
+  
+  <text x="400" y="55" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="32" fill="#00ccff" filter="url(#g3)">译码阶段 ID Stage</text>
+  <text x="400" y="85" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#88ddff">Instruction Decode · 指令解析与控制信号生成</text>
+  
+  <g transform="translate(40, 120)">
+    <rect x="0" y="0" width="220" height="160" rx="10" fill="rgba(0,80,100,0.3)" stroke="#00aaff" stroke-width="1.5"/>
+    <text x="110" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ccff">指令解码器</text>
+    <line x1="10" y1="35" x2="210" y2="35" stroke="#00aaff" opacity="0.3"/>
+    <text x="15" y="60" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 操作码识别 (opcode)</text>
+    <text x="15" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 功能码解析 (funct3/7)</text>
+    <text x="15" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 寄存器索引提取</text>
+    <text x="15" y="120" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 指令类型判断</text>
+    <text x="15" y="140" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 非法指令检测</text>
+  </g>
+  
+  <g transform="translate(290, 120)">
+    <rect x="0" y="0" width="220" height="160" rx="10" fill="rgba(0,100,80,0.3)" stroke="#00ffaa" stroke-width="1.5"/>
+    <text x="110" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ffcc">立即数生成器</text>
+    <line x1="10" y1="35" x2="210" y2="35" stroke="#00ffaa" opacity="0.3"/>
+    <text x="15" y="60" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• I-Type 立即数</text>
+    <text x="15" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• S-Type 立即数</text>
+    <text x="15" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• B-Type 立即数</text>
+    <text x="15" y="120" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• U-Type 立即数</text>
+    <text x="15" y="140" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• J-Type 立即数</text>
+  </g>
+  
+  <g transform="translate(540, 120)">
+    <rect x="0" y="0" width="220" height="160" rx="10" fill="rgba(80,60,0,0.3)" stroke="#ffcc00" stroke-width="1.5"/>
+    <text x="110" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#ffdd44">控制信号</text>
+    <line x1="10" y1="35" x2="210" y2="35" stroke="#ffcc00" opacity="0.3"/>
+    <text x="15" y="60" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">• ALU 操作类型</text>
+    <text x="15" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">• 访存读/写使能</text>
+    <text x="15" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">• 寄存器写使能</text>
+    <text x="15" y="120" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">• 分支/跳转类型</text>
+    <text x="15" y="140" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">• 功能单元选择</text>
+  </g>
+  
+  <g transform="translate(40, 300)">
+    <rect x="0" y="0" width="720" height="110" rx="8" fill="rgba(0,40,60,0.25)" stroke="#00aaff" stroke-width="1"/>
+    <text x="360" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#00ddff">译码输出 (微操作)</text>
+    <g transform="translate(20, 40)">
+      <rect x="0" y="0" width="130" height="50" rx="5" fill="rgba(0,200,255,0.15)" stroke="#00ccff"/>
+      <text x="65" y="20" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaddff">rs1, rs2, rd</text>
+      <text x="65" y="38" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#88aadd">寄存器索引</text>
+    </g>
+    <g transform="translate(170, 40)">
+      <rect x="0" y="0" width="130" height="50" rx="5" fill="rgba(0,255,170,0.15)" stroke="#00ffaa"/>
+      <text x="65" y="20" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">imm[31:0]</text>
+      <text x="65" y="38" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#88ddcc">符号扩展立即数</text>
+    </g>
+    <g transform="translate(320, 40)">
+      <rect x="0" y="0" width="130" height="50" rx="5" fill="rgba(255,204,0,0.15)" stroke="#ffcc00"/>
+      <text x="65" y="20" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffeebb">alu_op, fu_sel</text>
+      <text x="65" y="38" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#ddcc88">操作控制</text>
+    </g>
+    <g transform="translate(470, 40)">
+      <rect x="0" y="0" width="130" height="50" rx="5" fill="rgba(255,136,170,0.15)" stroke="#ff88aa"/>
+      <text x="65" y="20" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffccdd">mem_rd/wr</text>
+      <text x="65" y="38" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#ddaacc">访存控制</text>
+    </g>
+    <g transform="translate(620, 40)">
+      <rect x="0" y="0" width="80" height="50" rx="5" fill="rgba(170,136,255,0.15)" stroke="#aa88ff"/>
+      <text x="40" y="20" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ccaaff">异常</text>
+      <text x="40" y="38" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#aa88dd">非法指令</text>
+    </g>
+  </g>
+  
+  <text x="400" y="435" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#668888" opacity="0.7">ID Stage · 译码阶段</text>
+</svg>

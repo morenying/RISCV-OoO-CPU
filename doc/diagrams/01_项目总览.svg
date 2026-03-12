@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/><stop offset="50%" style="stop-color:#0d2040"/><stop offset="100%" style="stop-color:#051a1a"/>
+    </linearGradient>
+    <linearGradient id="au1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0"/><stop offset="50%" style="stop-color:#00ffcc;stop-opacity:0.6"/><stop offset="100%" style="stop-color:#0088ff;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="900" height="500" fill="url(#bg1)"/>
+  <g opacity="0.7">
+    <circle cx="50" cy="40" r="1.5" fill="#fff"/><circle cx="150" cy="70" r="1" fill="#adf"/><circle cx="280" cy="35" r="2" fill="#fff"/>
+    <circle cx="450" cy="60" r="1" fill="#8cf"/><circle cx="600" cy="30" r="1.5" fill="#fff"/><circle cx="750" cy="55" r="1" fill="#adf"/>
+    <circle cx="850" cy="45" r="2" fill="#fff"/><circle cx="100" cy="450" r="1" fill="#fff"/><circle cx="400" cy="470" r="1.5" fill="#adf"/>
+    <circle cx="700" cy="460" r="1" fill="#fff"/><circle cx="820" cy="480" r="1.5" fill="#8cf"/>
+  </g>
+  <ellipse cx="450" cy="80" rx="350" ry="50" fill="url(#au1)" opacity="0.4"/>
+  
+  <text x="450" y="70" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="36" fill="#00ffcc" filter="url(#glow)">RISC-V 乱序执行处理器</text>
+  <text x="450" y="105" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="18" fill="#88ddff">RV32IM + Zicsr · 七级流水线 · 高性能微架构</text>
+  
+  <g transform="translate(50, 140)">
+    <rect x="0" y="0" width="800" height="80" rx="10" fill="rgba(0,80,80,0.25)" stroke="#00ffaa" stroke-width="1.5"/>
+    <text x="400" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ffcc">七级流水线</text>
+    <g transform="translate(30, 40)">
+      <rect x="0" y="0" width="90" height="30" rx="5" fill="rgba(0,255,170,0.2)" stroke="#00ffaa"/><text x="45" y="20" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">IF 取指</text>
+      <rect x="105" y="0" width="90" height="30" rx="5" fill="rgba(0,200,255,0.2)" stroke="#00ccff"/><text x="150" y="20" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">ID 译码</text>
+      <rect x="210" y="0" width="90" height="30" rx="5" fill="rgba(170,136,255,0.2)" stroke="#aa88ff"/><text x="255" y="20" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ccaaff">RN 重命名</text>
+      <rect x="315" y="0" width="90" height="30" rx="5" fill="rgba(255,204,0,0.2)" stroke="#ffcc00"/><text x="360" y="20" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">IS 发射</text>
+      <rect x="420" y="0" width="90" height="30" rx="5" fill="rgba(255,100,100,0.2)" stroke="#ff6666"/><text x="465" y="20" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffaaaa">EX 执行</text>
+      <rect x="525" y="0" width="90" height="30" rx="5" fill="rgba(0,200,200,0.2)" stroke="#00cccc"/><text x="570" y="20" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffff">MEM 访存</text>
+      <rect x="630" y="0" width="90" height="30" rx="5" fill="rgba(0,255,136,0.2)" stroke="#00ff88"/><text x="675" y="20" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">WB 写回</text>
+    </g>
+  </g>
+  
+  <g transform="translate(50, 250)">
+    <text x="0" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ffcc">核心特性</text>
+    <text x="20" y="30" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaddff">• 乱序执行 + 顺序提交</text>
+    <text x="20" y="55" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaddff">• 寄存器重命名消除假依赖</text>
+    <text x="20" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaddff">• TAGE 分支预测 (>90%)</text>
+    <text x="20" y="105" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaddff">• 4KB I-Cache + 4KB D-Cache</text>
+  </g>
+  
+  <g transform="translate(300, 250)">
+    <text x="0" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#ffcc00">关键组件</text>
+    <text x="20" y="30" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffeebb">• ROB 32项重排序缓冲</text>
+    <text x="20" y="55" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffeebb">• PRF 64个物理寄存器</text>
+    <text x="20" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffeebb">• 5个功能单元保留站</text>
+    <text x="20" y="105" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffeebb">• Load/Store Queue 各8项</text>
+  </g>
+  
+  <g transform="translate(550, 250)">
+    <text x="0" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#ff88aa">性能目标</text>
+    <text x="20" y="30" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffccdd">• 时钟频率: 100 MHz</text>
+    <text x="20" y="55" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffccdd">• IPC 目标: > 0.8</text>
+    <text x="20" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffccdd">• 缓存命中率: > 95%</text>
+    <text x="20" y="105" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffccdd">• 支持 54 条指令</text>
+  </g>
+  
+  <g transform="translate(50, 390)">
+    <rect x="0" y="0" width="800" height="70" rx="8" fill="rgba(0,60,80,0.25)" stroke="#00aaff" stroke-width="1"/>
+    <text x="400" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#00ddff">指令集支持</text>
+    <text x="100" y="50" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">RV32I 基础 (40条)</text>
+    <text x="300" y="50" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">RV32M 乘除 (8条)</text>
+    <text x="500" y="50" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffccff">Zicsr 扩展 (6条)</text>
+    <text x="700" y="50" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">异常处理支持</text>
+  </g>
+  
+  <text x="450" y="485" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#668888" opacity="0.7">RISC-V RV32IM 乱序执行处理器</text>
+</svg>

@@ -1,0 +1,48 @@
+[*]
+[*] GTKWave Analyzer - CDB Test
+[*]
+[dumpfile] "sim/waves/cdb_wave.vcd"
+[savefile] "tb/wave/cdb.gtkw"
+[timestart] 0
+[size] 1400 800
+[pos] -1 -1
+*-16.000000 25 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_cdb_wave.
+[sst_width] 250
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@28
+tb_cdb_wave.clk
+tb_cdb_wave.rst_n
+@200
+-Source Inputs
+@28
+tb_cdb_wave.src0_valid_i
+tb_cdb_wave.src0_ready_o
+tb_cdb_wave.src1_valid_i
+tb_cdb_wave.src1_ready_o
+tb_cdb_wave.src2_valid_i
+tb_cdb_wave.src2_ready_o
+tb_cdb_wave.src3_valid_i
+tb_cdb_wave.src3_ready_o
+tb_cdb_wave.src4_valid_i
+tb_cdb_wave.src4_ready_o
+tb_cdb_wave.src5_valid_i
+tb_cdb_wave.src5_ready_o
+@200
+-CDB Output
+@28
+tb_cdb_wave.cdb_valid_o
+@22
+tb_cdb_wave.cdb_src_id_o[2:0]
+tb_cdb_wave.cdb_preg_o[5:0]
+tb_cdb_wave.cdb_data_o[31:0]
+tb_cdb_wave.cdb_rob_idx_o[4:0]
+@28
+tb_cdb_wave.cdb_exception_o
+tb_cdb_wave.cdb_branch_taken_o
+@22
+tb_cdb_wave.cdb_branch_target_o[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

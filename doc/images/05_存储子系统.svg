@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a28"/>
+      <stop offset="50%" style="stop-color:#0c2038"/>
+      <stop offset="100%" style="stop-color:#061616"/>
+    </linearGradient>
+    <linearGradient id="auroraC" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#00ffcc;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#0088ff;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="auroraD" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0066ff;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#00bbff;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#00ff77;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glow5"><feGaussianBlur stdDeviation="3"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="boxG5"><feGaussianBlur stdDeviation="4"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  
+  <rect width="1200" height="800" fill="url(#bg5)"/>
+  
+  <!-- 星空 -->
+  <g opacity="0.8">
+    <circle cx="65" cy="42" r="1.5" fill="#fff"/><circle cx="185" cy="72" r="1" fill="#adf"/>
+    <circle cx="325" cy="37" r="2" fill="#fff"/><circle cx="485" cy="82" r="1" fill="#8cf"/>
+    <circle cx="625" cy="27" r="1.5" fill="#fff"/><circle cx="785" cy="62" r="1" fill="#adf"/>
+    <circle cx="925" cy="47" r="2" fill="#fff"/><circle cx="1085" cy="77" r="1" fill="#8cf"/>
+    <circle cx="105" cy="135" r="1" fill="#fff"/><circle cx="355" cy="115" r="1.5" fill="#adf"/>
+    <circle cx="655" cy="125" r="1" fill="#fff"/><circle cx="955" cy="105" r="1.5" fill="#8cf"/>
+    <circle cx="52" cy="755" r="1" fill="#fff"/><circle cx="255" cy="775" r="1.5" fill="#adf"/>
+    <circle cx="555" cy="745" r="1" fill="#fff"/><circle cx="855" cy="765" r="2" fill="#8cf"/>
+    <circle cx="1105" cy="735" r="1" fill="#fff"/>
+  </g>
+  
+  <!-- 极光 -->
+  <ellipse cx="600" cy="105" rx="510" ry="62" fill="url(#auroraC)" opacity="0.4"/>
+  <ellipse cx="410" cy="145" rx="370" ry="48" fill="url(#auroraD)" opacity="0.3"/>
+  
+  <!-- 标题 -->
+  <text x="600" y="72" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="46" fill="#00ffcc" filter="url(#glow5)">存储子系统</text>
+  <text x="600" y="112" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="20" fill="#88ddff">Memory Subsystem · 缓存与访存队列</text>
+
+  <!-- 缓存系统 -->
+  <g transform="translate(50, 160)">
+    <!-- I-Cache -->
+    <g filter="url(#boxG5)">
+      <rect x="0" y="0" width="260" height="250" rx="12" fill="rgba(0,100,80,0.35)" stroke="#00ffaa" stroke-width="2"/>
+      <text x="130" y="32" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="22" fill="#00ffcc">I-Cache 指令缓存</text>
+      <line x1="15" y1="48" x2="245" y2="48" stroke="#00ffaa" opacity="0.4"/>
+      
+      <text x="20" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aaffcc">• 容量: 4KB</text>
+      <text x="20" y="105" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aaffcc">• 组织: 4路组相联</text>
+      <text x="20" y="130" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aaffcc">• 块大小: 32 字节</text>
+      <text x="20" y="155" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aaffcc">• 替换策略: LRU</text>
+      <text x="20" y="180" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aaffcc">• 命中延迟: 1 周期</text>
+      <text x="20" y="205" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aaffcc">• 目标命中率: > 95%</text>
+      
+      <rect x="20" y="220" width="220" height="20" rx="4" fill="rgba(0,255,170,0.2)" stroke="#00ffaa"/>
+      <text x="130" y="235" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#00ffcc">只读 · 与 BPU 协同工作</text>
+    </g>
+    
+    <!-- D-Cache -->
+    <g transform="translate(300, 0)" filter="url(#boxG5)">
+      <rect x="0" y="0" width="260" height="250" rx="12" fill="rgba(0,60,100,0.35)" stroke="#00aaff" stroke-width="2"/>
+      <text x="130" y="32" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="22" fill="#00ccff">D-Cache 数据缓存</text>
+      <line x1="15" y1="48" x2="245" y2="48" stroke="#00aaff" opacity="0.4"/>
+      
+      <text x="20" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aaddff">• 容量: 4KB</text>
+      <text x="20" y="105" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aaddff">• 组织: 4路组相联</text>
+      <text x="20" y="130" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aaddff">• 块大小: 32 字节</text>
+      <text x="20" y="155" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aaddff">• 写策略: 写回式</text>
+      <text x="20" y="180" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aaddff">• 命中延迟: 1 周期</text>
+      <text x="20" y="205" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aaddff">• 目标命中率: > 90%</text>
+      
+      <rect x="20" y="220" width="220" height="20" rx="4" fill="rgba(0,170,255,0.2)" stroke="#00aaff"/>
+      <text x="130" y="235" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#00ccff">读写 · 支持字节/半字/字访问</text>
+    </g>
+    
+    <!-- Load Queue -->
+    <g transform="translate(600, 0)" filter="url(#boxG5)">
+      <rect x="0" y="0" width="240" height="250" rx="12" fill="rgba(80,60,0,0.35)" stroke="#ffcc00" stroke-width="2"/>
+      <text x="120" y="32" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="22" fill="#ffdd44">Load Queue</text>
+      <line x1="15" y1="48" x2="225" y2="48" stroke="#ffcc00" opacity="0.4"/>
+      
+      <text x="20" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffeebb">• 8 项深度</text>
+      <text x="20" y="105" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffeebb">• 地址计算后入队</text>
+      <text x="20" y="130" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffeebb">• Store-to-Load 转发</text>
+      <text x="20" y="155" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffeebb">• 内存依赖检测</text>
+      <text x="20" y="180" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffeebb">• 推测执行支持</text>
+      <text x="20" y="205" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffeebb">• 乱序完成</text>
+      
+      <rect x="20" y="220" width="200" height="20" rx="4" fill="rgba(255,204,0,0.2)" stroke="#ffcc00"/>
+      <text x="120" y="235" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffdd44">可推测执行 · 提交时验证</text>
+    </g>
+    
+    <!-- Store Queue -->
+    <g transform="translate(880, 0)" filter="url(#boxG5)">
+      <rect x="0" y="0" width="240" height="250" rx="12" fill="rgba(80,0,60,0.35)" stroke="#ff88aa" stroke-width="2"/>
+      <text x="120" y="32" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="22" fill="#ffaacc">Store Queue</text>
+      <line x1="15" y1="48" x2="225" y2="48" stroke="#ff88aa" opacity="0.4"/>
+      
+      <text x="20" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffccdd">• 8 项深度</text>
+      <text x="20" y="105" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffccdd">• 地址+数据缓存</text>
+      <text x="20" y="130" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffccdd">• 提交后写入缓存</text>
+      <text x="20" y="155" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffccdd">• 数据转发给 Load</text>
+      <text x="20" y="180" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffccdd">• 顺序提交保证</text>
+      <text x="20" y="205" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffccdd">• 合并写优化</text>
+      
+      <rect x="20" y="220" width="200" height="20" rx="4" fill="rgba(255,136,170,0.2)" stroke="#ff88aa"/>
+      <text x="120" y="235" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffaacc">非推测 · ROB 提交后执行</text>
+    </g>
+  </g>
+  
+  <!-- AXI 总线接口 -->
+  <g transform="translate(50, 440)">
+    <g filter="url(#boxG5)">
+      <rect x="0" y="0" width="1100" height="120" rx="12" fill="rgba(50,50,100,0.35)" stroke="#8888ff" stroke-width="2"/>
+      <text x="550" y="35" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="22" fill="#aaaaff">AXI4 总线接口</text>
+      <line x1="20" y1="50" x2="1080" y2="50" stroke="#8888ff" opacity="0.4"/>
+      
+      <g transform="translate(30, 65)">
+        <text x="0" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ccccff">• AXI4 协议兼容</text>
+        <text x="200" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ccccff">• 32-bit 数据宽度</text>
+        <text x="400" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ccccff">• 突发传输支持</text>
+        <text x="600" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ccccff">• 独立读写通道</text>
+        <text x="800" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ccccff">• 未对齐访问处理</text>
+      </g>
+      
+      <g transform="translate(30, 95)">
+        <text x="0" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ccccff">• I-Bus: 指令取指</text>
+        <text x="200" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ccccff">• D-Bus: 数据访问</text>
+        <text x="400" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ccccff">• 缓存行填充</text>
+        <text x="600" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ccccff">• 写回脏数据</text>
+        <text x="800" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ccccff">• 非缓存访问</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- 存储转发说明 -->
+  <g transform="translate(50, 590)">
+    <rect x="0" y="0" width="1100" height="150" rx="12" fill="rgba(0,40,60,0.3)" stroke="#00aaff" stroke-width="1"/>
+    <text x="550" y="35" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="20" fill="#00ddff" filter="url(#glow5)">Store-to-Load Forwarding 存储转发机制</text>
+    
+    <g transform="translate(30, 55)">
+      <text x="0" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="15" fill="#00ffcc">工作原理:</text>
+      <text x="20" y="25" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaddff">当 Load 指令的地址与 Store Queue 中某个 Store 指令地址匹配时，直接从 Store Queue 转发数据，无需访问缓存</text>
+      
+      <text x="0" y="60" font-family="KaiTi, STKaiti, 楷体, serif" font-size="15" fill="#ffcc00">转发条件:</text>
+      <text x="20" y="85" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffeebb">① Store 地址已计算完成  ② 地址完全匹配或包含  ③ Store 在程序顺序上先于 Load  ④ 数据宽度兼容</text>
+    </g>
+    
+    <g transform="translate(700, 55)">
+      <text x="0" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="15" fill="#ff88aa">性能优势:</text>
+      <text x="20" y="25" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffccdd">• 减少 Load 延迟 1-2 周期</text>
+      <text x="20" y="50" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffccdd">• 避免不必要的缓存访问</text>
+      <text x="20" y="75" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffccdd">• 提高内存级并行度</text>
+    </g>
+  </g>
+  
+  <text x="600" y="780" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#668888" opacity="0.7">RISC-V RV32IM 乱序执行处理器 · 存储子系统</text>
+</svg>

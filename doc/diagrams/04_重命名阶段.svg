@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/><stop offset="50%" style="stop-color:#0d2040"/><stop offset="100%" style="stop-color:#051a1a"/>
+    </linearGradient>
+    <linearGradient id="au4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#aa88ff;stop-opacity:0"/><stop offset="50%" style="stop-color:#bb99ff;stop-opacity:0.5"/><stop offset="100%" style="stop-color:#00ccff;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="g4"><feGaussianBlur stdDeviation="2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg4)"/>
+  <g opacity="0.7">
+    <circle cx="40" cy="30" r="1.5" fill="#fff"/><circle cx="150" cy="50" r="1" fill="#adf"/><circle cx="300" cy="25" r="2" fill="#fff"/>
+    <circle cx="500" cy="45" r="1" fill="#8cf"/><circle cx="650" cy="35" r="1.5" fill="#fff"/><circle cx="760" cy="55" r="1" fill="#adf"/>
+    <circle cx="80" cy="420" r="1" fill="#fff"/><circle cx="400" cy="430" r="1.5" fill="#adf"/><circle cx="720" cy="425" r="1" fill="#8cf"/>
+  </g>
+  <ellipse cx="400" cy="60" rx="300" ry="40" fill="url(#au4)" opacity="0.4"/>
+  
+  <text x="400" y="55" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="32" fill="#bb99ff" filter="url(#g4)">重命名阶段 RN Stage</text>
+  <text x="400" y="85" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aa88ff">Register Rename · 消除假依赖 · 支持乱序执行</text>
+  
+  <g transform="translate(40, 120)">
+    <rect x="0" y="0" width="230" height="150" rx="10" fill="rgba(80,60,120,0.3)" stroke="#aa88ff" stroke-width="1.5"/>
+    <text x="115" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#bb99ff">RAT 寄存器别名表</text>
+    <line x1="10" y1="35" x2="220" y2="35" stroke="#aa88ff" opacity="0.3"/>
+    <text x="15" y="60" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ccaaff">• 32项 (x0-x31 映射)</text>
+    <text x="15" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ccaaff">• 架构→物理寄存器映射</text>
+    <text x="15" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ccaaff">• 推测状态表</text>
+    <text x="15" y="120" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ccaaff">• 提交状态表</text>
+    <text x="15" y="140" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ccaaff">• 快速恢复支持</text>
+  </g>
+  
+  <g transform="translate(290, 120)">
+    <rect x="0" y="0" width="230" height="150" rx="10" fill="rgba(80,100,0,0.3)" stroke="#aacc00" stroke-width="1.5"/>
+    <text x="115" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#bbdd44">Free List 空闲列表</text>
+    <line x1="10" y1="35" x2="220" y2="35" stroke="#aacc00" opacity="0.3"/>
+    <text x="15" y="60" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ddeebb">• 64个物理寄存器池</text>
+    <text x="15" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ddeebb">• FIFO 分配策略</text>
+    <text x="15" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ddeebb">• 提交时释放旧映射</text>
+    <text x="15" y="120" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ddeebb">• 回滚时恢复</text>
+    <text x="15" y="140" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ddeebb">• 空闲计数器</text>
+  </g>
+  
+  <g transform="translate(540, 120)">
+    <rect x="0" y="0" width="220" height="150" rx="10" fill="rgba(0,100,80,0.3)" stroke="#00ffaa" stroke-width="1.5"/>
+    <text x="110" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ffcc">ROB 分配</text>
+    <line x1="10" y1="35" x2="210" y2="35" stroke="#00ffaa" opacity="0.3"/>
+    <text x="15" y="60" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 分配 ROB 项</text>
+    <text x="15" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 记录目标寄存器</text>
+    <text x="15" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 记录旧物理寄存器</text>
+    <text x="15" y="120" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 保存 PC 和异常</text>
+    <text x="15" y="140" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 生成 ROB 索引</text>
+  </g>
+  
+  <g transform="translate(40, 290)">
+    <rect x="0" y="0" width="720" height="120" rx="8" fill="rgba(0,40,60,0.25)" stroke="#aa88ff" stroke-width="1"/>
+    <text x="360" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#bb99ff">重命名流程</text>
+    <text x="20" y="50" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ccaaff">1. 查询 RAT 获取 rs1, rs2 的物理寄存器号</text>
+    <text x="20" y="70" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ccaaff">2. 从 Free List 分配新物理寄存器给 rd</text>
+    <text x="20" y="90" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ccaaff">3. 更新 RAT: rd → 新物理寄存器</text>
+    <text x="20" y="110" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ccaaff">4. 分配 ROB 项，记录旧映射用于恢复</text>
+    <text x="400" y="50" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">消除的依赖:</text>
+    <text x="400" y="70" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">• WAW (写后写) - 不同指令写同一寄存器</text>
+    <text x="400" y="90" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">• WAR (写后读) - 后写先读同一寄存器</text>
+    <text x="400" y="110" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">保留: RAW (读后写) - 真数据依赖</text>
+  </g>
+  
+  <text x="400" y="435" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#668888" opacity="0.7">RN Stage · 重命名阶段</text>
+</svg>

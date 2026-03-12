@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg8" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/><stop offset="50%" style="stop-color:#0d2040"/><stop offset="100%" style="stop-color:#051a1a"/>
+    </linearGradient>
+    <linearGradient id="au8" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0"/><stop offset="50%" style="stop-color:#00ff99;stop-opacity:0.5"/><stop offset="100%" style="stop-color:#00ffcc;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="g8"><feGaussianBlur stdDeviation="2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg8)"/>
+  <g opacity="0.7">
+    <circle cx="40" cy="30" r="1.5" fill="#fff"/><circle cx="150" cy="50" r="1" fill="#adf"/><circle cx="300" cy="25" r="2" fill="#fff"/>
+    <circle cx="500" cy="45" r="1" fill="#8cf"/><circle cx="650" cy="35" r="1.5" fill="#fff"/><circle cx="760" cy="55" r="1" fill="#adf"/>
+    <circle cx="80" cy="420" r="1" fill="#fff"/><circle cx="400" cy="430" r="1.5" fill="#adf"/><circle cx="720" cy="425" r="1" fill="#8cf"/>
+  </g>
+  <ellipse cx="400" cy="60" rx="300" ry="40" fill="url(#au8)" opacity="0.4"/>
+  
+  <text x="400" y="55" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="32" fill="#00ff99" filter="url(#g8)">写回阶段 WB Stage</text>
+  <text x="400" y="85" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#00ff88">Writeback Stage · ROB 提交与架构状态更新</text>
+  
+  <g transform="translate(40, 115)">
+    <rect x="0" y="0" width="230" height="160" rx="10" fill="rgba(0,100,60,0.3)" stroke="#00ff88" stroke-width="1.5"/>
+    <text x="115" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ff99">ROB 提交</text>
+    <line x1="10" y1="35" x2="220" y2="35" stroke="#00ff88" opacity="0.3"/>
+    <text x="15" y="58" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 32项重排序缓冲</text>
+    <text x="15" y="78" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 顺序提交保证</text>
+    <text x="15" y="98" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 检查完成位</text>
+    <text x="15" y="118" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 检查异常位</text>
+    <text x="15" y="138" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 头指针递增</text>
+  </g>
+  
+  <g transform="translate(290, 115)">
+    <rect x="0" y="0" width="230" height="160" rx="10" fill="rgba(0,80,100,0.3)" stroke="#00aaff" stroke-width="1.5"/>
+    <text x="115" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ccff">架构状态更新</text>
+    <line x1="10" y1="35" x2="220" y2="35" stroke="#00aaff" opacity="0.3"/>
+    <text x="15" y="58" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 更新 RAT 提交表</text>
+    <text x="15" y="78" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 释放旧物理寄存器</text>
+    <text x="15" y="98" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• Store 写入缓存</text>
+    <text x="15" y="118" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 更新 CSR 寄存器</text>
+    <text x="15" y="138" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 更新性能计数器</text>
+  </g>
+  
+  <g transform="translate(540, 115)">
+    <rect x="0" y="0" width="220" height="160" rx="10" fill="rgba(100,50,50,0.3)" stroke="#ff6666" stroke-width="1.5"/>
+    <text x="110" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#ff8888">异常处理</text>
+    <line x1="10" y1="35" x2="210" y2="35" stroke="#ff6666" opacity="0.3"/>
+    <text x="15" y="58" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffaaaa">• 精确异常支持</text>
+    <text x="15" y="78" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffaaaa">• 保存 mepc/mcause</text>
+    <text x="15" y="98" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffaaaa">• 冲刷流水线</text>
+    <text x="15" y="118" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffaaaa">• 跳转到 mtvec</text>
+    <text x="15" y="138" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffaaaa">• 恢复 RAT 状态</text>
+  </g>
+  
+  <g transform="translate(40, 290)">
+    <rect x="0" y="0" width="720" height="120" rx="8" fill="rgba(0,40,60,0.25)" stroke="#00ff88" stroke-width="1"/>
+    <text x="360" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#00ff99">提交流程</text>
+    
+    <text x="20" y="50" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">正常提交:</text>
+    <text x="20" y="70" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#88ddcc">1. ROB 头部指令完成且无异常</text>
+    <text x="20" y="88" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#88ddcc">2. 更新架构状态 (RAT提交表)</text>
+    <text x="20" y="106" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#88ddcc">3. 释放旧物理寄存器到 Free List</text>
+    
+    <text x="280" y="50" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffaaaa">异常提交:</text>
+    <text x="280" y="70" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ff8888">1. ROB 头部指令有异常</text>
+    <text x="280" y="88" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ff8888">2. 冲刷所有后续指令</text>
+    <text x="280" y="106" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ff8888">3. 恢复到提交状态</text>
+    
+    <text x="520" y="50" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffcc88">分支误预测:</text>
+    <text x="520" y="70" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffeebb">1. 分支指令提交时检测</text>
+    <text x="520" y="88" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffeebb">2. 冲刷错误路径指令</text>
+    <text x="520" y="106" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffeebb">3. 重定向到正确地址</text>
+  </g>
+  
+  <text x="400" y="435" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#668888" opacity="0.7">WB Stage · 写回阶段</text>
+</svg>

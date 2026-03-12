@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/><stop offset="50%" style="stop-color:#0d2040"/><stop offset="100%" style="stop-color:#051a1a"/>
+    </linearGradient>
+    <linearGradient id="au6" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6666;stop-opacity:0"/><stop offset="50%" style="stop-color:#ff8888;stop-opacity:0.5"/><stop offset="100%" style="stop-color:#ffaa00;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="g6"><feGaussianBlur stdDeviation="2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg6)"/>
+  <g opacity="0.7">
+    <circle cx="40" cy="30" r="1.5" fill="#fff"/><circle cx="150" cy="50" r="1" fill="#adf"/><circle cx="300" cy="25" r="2" fill="#fff"/>
+    <circle cx="500" cy="45" r="1" fill="#8cf"/><circle cx="650" cy="35" r="1.5" fill="#fff"/><circle cx="760" cy="55" r="1" fill="#adf"/>
+    <circle cx="80" cy="420" r="1" fill="#fff"/><circle cx="400" cy="430" r="1.5" fill="#adf"/><circle cx="720" cy="425" r="1" fill="#8cf"/>
+  </g>
+  <ellipse cx="400" cy="60" rx="300" ry="40" fill="url(#au6)" opacity="0.4"/>
+  
+  <text x="400" y="55" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="32" fill="#ff8888" filter="url(#g6)">执行阶段 EX Stage</text>
+  <text x="400" y="85" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ff6666">Execute Stage · 多功能单元并行执行</text>
+  
+  <g transform="translate(40, 115)">
+    <rect x="0" y="0" width="140" height="130" rx="10" fill="rgba(0,100,80,0.3)" stroke="#00ffaa" stroke-width="1.5"/>
+    <text x="70" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="15" fill="#00ffcc">ALU 单元</text>
+    <line x1="10" y1="35" x2="130" y2="35" stroke="#00ffaa" opacity="0.3"/>
+    <text x="15" y="55" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">• 算术运算</text>
+    <text x="15" y="72" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">• 逻辑运算</text>
+    <text x="15" y="89" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">• 移位运算</text>
+    <text x="15" y="106" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">• 比较运算</text>
+    <rect x="15" y="112" width="110" height="15" rx="3" fill="rgba(0,255,170,0.2)"/>
+    <text x="70" y="123" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#00ffcc">1 周期</text>
+  </g>
+  
+  <g transform="translate(195, 115)">
+    <rect x="0" y="0" width="140" height="130" rx="10" fill="rgba(80,80,0,0.3)" stroke="#cccc00" stroke-width="1.5"/>
+    <text x="70" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="15" fill="#dddd44">MUL 单元</text>
+    <line x1="10" y1="35" x2="130" y2="35" stroke="#cccc00" opacity="0.3"/>
+    <text x="15" y="55" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#eeeebb">• MUL 低32位</text>
+    <text x="15" y="72" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#eeeebb">• MULH 高32位</text>
+    <text x="15" y="89" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#eeeebb">• MULHSU 混合</text>
+    <text x="15" y="106" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#eeeebb">• 流水线化</text>
+    <rect x="15" y="112" width="110" height="15" rx="3" fill="rgba(204,204,0,0.2)"/>
+    <text x="70" y="123" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#dddd44">3 周期</text>
+  </g>
+  
+  <g transform="translate(350, 115)">
+    <rect x="0" y="0" width="140" height="130" rx="10" fill="rgba(100,50,0,0.3)" stroke="#ff8800" stroke-width="1.5"/>
+    <text x="70" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="15" fill="#ffaa44">DIV 单元</text>
+    <line x1="10" y1="35" x2="130" y2="35" stroke="#ff8800" opacity="0.3"/>
+    <text x="15" y="55" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffcc88">• DIV/DIVU</text>
+    <text x="15" y="72" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffcc88">• REM/REMU</text>
+    <text x="15" y="89" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffcc88">• 迭代算法</text>
+    <text x="15" y="106" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffcc88">• 非流水线</text>
+    <rect x="15" y="112" width="110" height="15" rx="3" fill="rgba(255,136,0,0.2)"/>
+    <text x="70" y="123" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#ffaa44">34 周期</text>
+  </g>
+  
+  <g transform="translate(505, 115)">
+    <rect x="0" y="0" width="140" height="130" rx="10" fill="rgba(80,0,80,0.3)" stroke="#ff88ff" stroke-width="1.5"/>
+    <text x="70" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="15" fill="#ffaaff">BRU 单元</text>
+    <line x1="10" y1="35" x2="130" y2="35" stroke="#ff88ff" opacity="0.3"/>
+    <text x="15" y="55" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffccff">• 条件判断</text>
+    <text x="15" y="72" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffccff">• 目标计算</text>
+    <text x="15" y="89" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffccff">• 预测验证</text>
+    <text x="15" y="106" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffccff">• 误预测信号</text>
+    <rect x="15" y="112" width="110" height="15" rx="3" fill="rgba(255,136,255,0.2)"/>
+    <text x="70" y="123" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#ffaaff">1 周期</text>
+  </g>
+  
+  <g transform="translate(660, 115)">
+    <rect x="0" y="0" width="100" height="130" rx="10" fill="rgba(0,80,100,0.3)" stroke="#00aaff" stroke-width="1.5"/>
+    <text x="50" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="15" fill="#00ccff">AGU</text>
+    <line x1="10" y1="35" x2="90" y2="35" stroke="#00aaff" opacity="0.3"/>
+    <text x="10" y="55" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaddff">• 地址计算</text>
+    <text x="10" y="72" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaddff">• 对齐检查</text>
+    <text x="10" y="89" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaddff">• 送 LSQ</text>
+    <rect x="10" y="112" width="80" height="15" rx="3" fill="rgba(0,170,255,0.2)"/>
+    <text x="50" y="123" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#00ccff">1 周期</text>
+  </g>
+  
+  <g transform="translate(40, 260)">
+    <rect x="0" y="0" width="720" height="60" rx="8" fill="rgba(100,60,0,0.25)" stroke="#ff8800" stroke-width="1"/>
+    <text x="360" y="22" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffaa44">CDB 公共数据总线</text>
+    <text x="100" y="45" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffcc88">广播执行结果</text>
+    <text x="280" y="45" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffcc88">唤醒等待指令</text>
+    <text x="460" y="45" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffcc88">更新 ROB</text>
+    <text x="620" y="45" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffcc88">2 条总线</text>
+  </g>
+  
+  <g transform="translate(40, 335)">
+    <rect x="0" y="0" width="720" height="75" rx="8" fill="rgba(0,40,60,0.25)" stroke="#ff6666" stroke-width="1"/>
+    <text x="360" y="22" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ff8888">执行特性</text>
+    <text x="20" y="48" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffaaaa">• 多功能单元并行执行</text>
+    <text x="200" y="48" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffaaaa">• 乱序完成</text>
+    <text x="340" y="48" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffaaaa">• 结果通过 CDB 广播</text>
+    <text x="540" y="48" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffaaaa">• 支持旁路转发</text>
+    <text x="20" y="68" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaddff">分支误预测: 冲刷流水线，恢复 RAT，重新取指</text>
+  </g>
+  
+  <text x="400" y="435" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#668888" opacity="0.7">EX Stage · 执行阶段</text>
+</svg>

@@ -1,0 +1,36 @@
+[*]
+[*] GTKWave Analyzer - AGU Test
+[*]
+[dumpfile] "sim/waves/agu_wave.vcd"
+[savefile] "tb/wave/agu.gtkw"
+[timestart] 0
+[size] 1400 800
+[pos] -1 -1
+*-16.000000 25 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_agu_wave.
+[sst_width] 250
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@28
+tb_agu_wave.clk
+tb_agu_wave.rst_n
+tb_agu_wave.valid_i
+tb_agu_wave.done_o
+tb_agu_wave.is_store_i
+tb_agu_wave.is_store_o
+@22
+tb_agu_wave.base_i[31:0]
+tb_agu_wave.offset_i[31:0]
+tb_agu_wave.addr_o[31:0]
+tb_agu_wave.store_data_i[31:0]
+tb_agu_wave.data_o[31:0]
+tb_agu_wave.size_i[1:0]
+@28
+tb_agu_wave.sign_ext_i
+tb_agu_wave.misaligned_o
+@22
+tb_agu_wave.prd_i[5:0]
+tb_agu_wave.result_prd_o[5:0]
+[pattern_trace] 1
+[pattern_trace] 0

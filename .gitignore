@@ -1,0 +1,59 @@
+# ===========================
+# RISC-V OoO CPU - .gitignore
+# ===========================
+
+# ---------- Icarus Verilog ----------
+*.vvp
+*.vcd
+*.lxt
+*.lxt2
+*.fst
+
+# ---------- Verilator ----------
+obj_dir/
+
+# ---------- 仿真输出 ----------
+sim/
+*.log
+*.dat
+
+# ---------- Xilinx / Vivado ----------
+*.bit
+*.bin
+*.mcs
+*.xpr
+*.jou
+*.str
+*.wdb
+*.pb
+.Xil/
+*.runs/
+*.cache/
+*.hw/
+*.sim/
+*.ip_user_files/
+*.srcs/
+
+# ---------- Yosys ----------
+*.json
+!package.json
+*.blif
+*.edif
+
+# ---------- 综合与仿真 ----------
+*.sdf
+*.saif
+work/
+transcript
+modelsim.ini
+
+# ---------- IDE / 编辑器 ----------
+.vscode/
+.idea/
+.kiro/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini

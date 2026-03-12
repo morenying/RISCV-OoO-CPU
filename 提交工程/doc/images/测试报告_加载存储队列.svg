@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+    <radialGradient id="bg9" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" style="stop-color:#0f1a2e"/>
+      <stop offset="50%" style="stop-color:#080d15"/>
+      <stop offset="100%" style="stop-color:#020305"/>
+    </radialGradient>
+    <linearGradient id="aurora9a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffc8"/><stop offset="100%" style="stop-color:#00a86b"/>
+    </linearGradient>
+    <linearGradient id="aurora9b" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#bf00ff"/><stop offset="50%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#bf00ff"/>
+      <animate attributeName="x1" values="0%;100%;0%" dur="8s" repeatCount="indefinite"/>
+    </linearGradient>
+    <linearGradient id="glass9" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.12)"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.02)"/>
+    </linearGradient>
+    <filter id="glow9" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur1"/><feGaussianBlur stdDeviation="3" result="blur2"/>
+      <feMerge><feMergeNode in="blur1"/><feMergeNode in="blur2"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft9" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2"/></filter>
+    <filter id="auroraBlur9" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="900" height="550" fill="url(#bg9)"/>
+  <ellipse cx="200" cy="140" rx="270" ry="88" fill="#bf00ff" opacity="0.025" filter="url(#auroraBlur9)"/>
+  <ellipse cx="700" cy="410" rx="230" ry="72" fill="#00d4ff" opacity="0.03" filter="url(#auroraBlur9)"/>
+
+  <path d="M-50,38 Q190,8 420,48 T950,28" stroke="#bf00ff" stroke-width="52" fill="none" opacity="0.09" filter="url(#auroraBlur9)">
+    <animate attributeName="d" values="M-50,38 Q190,8 420,48 T950,28;M-50,23 Q190,53 420,18 T950,43;M-50,38 Q190,8 420,48 T950,28" dur="9s" repeatCount="indefinite"/>
+  </path>
+  <path d="M-50,78 Q240,43 530,88 T950,63" stroke="#00d4ff" stroke-width="36" fill="none" opacity="0.07" filter="url(#auroraBlur9)">
+    <animate attributeName="d" values="M-50,78 Q240,43 530,88 T950,63;M-50,63 Q240,88 530,53 T950,78;M-50,78 Q240,43 530,88 T950,63" dur="11s" repeatCount="indefinite"/>
+  </path>
+  <circle cx="68" cy="58" r="1.8" fill="white" opacity="0.82"><animate attributeName="opacity" values="0.82;0.32;0.82" dur="2.7s" repeatCount="indefinite"/></circle>
+  <circle cx="158" cy="98" r="1.25" fill="white" opacity="0.62"/>
+  <circle cx="288" cy="52" r="2.05" fill="white" opacity="0.88"><animate attributeName="opacity" values="0.88;0.38;0.88" dur="2.35s" repeatCount="indefinite"/></circle>
+  <circle cx="428" cy="38" r="1.45" fill="white" opacity="0.68"/>
+  <circle cx="588" cy="72" r="1.75" fill="white" opacity="0.76"><animate attributeName="opacity" values="0.76;0.26;0.76" dur="3.15s" repeatCount="indefinite"/></circle>
+  <circle cx="728" cy="56" r="1.22" fill="white" opacity="0.58"/>
+  <circle cx="848" cy="88" r="1.92" fill="white" opacity="0.86"><animate attributeName="opacity" values="0.86;0.36;0.86" dur="2.65s" repeatCount="indefinite"/></circle>
+  <circle cx="108" cy="492" r="1.42" fill="white" opacity="0.66"/>
+  <circle cx="318" cy="512" r="1.72" fill="white" opacity="0.74"><animate attributeName="opacity" values="0.74;0.24;0.74" dur="3.05s" repeatCount="indefinite"/></circle>
+  <circle cx="558" cy="502" r="1.12" fill="white" opacity="0.54"/>
+  <circle cx="758" cy="522" r="1.52" fill="white" opacity="0.69"/>
+  <line x1="810" y1="55" x2="750" y2="115" stroke="url(#aurora9a)" stroke-width="2" stroke-linecap="round" opacity="0">
+    <animate attributeName="opacity" values="0;0.88;0" dur="4.2s" repeatCount="indefinite"/>
+  </line>
+  <rect x="100" y="160" width="700" height="280" rx="25" fill="url(#glass9)" stroke="url(#aurora9b)" stroke-width="1.5"/>
+  <circle cx="170" cy="230" r="35" fill="#00ffc8" filter="url(#glow9)" opacity="0.95">
+    <animate attributeName="r" values="35;38;35" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="170" y="242" text-anchor="middle" fill="#020305" font-size="32" font-weight="bold">✓</text>
+  <text x="480" y="225" text-anchor="middle" fill="url(#aurora9b)" font-size="40" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" filter="url(#glow9)">加载存储队列测试</text>
+  <text x="480" y="265" text-anchor="middle" fill="#00d4ff" font-size="16" font-family="KaiTi, STKaiti, 楷体, serif" opacity="0.8">Property 6/7/8 · Load/Store操作正确性</text>
+  <text x="220" y="330" fill="rgba(255,255,255,0.5)" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif">测试总数</text>
+  <text x="220" y="370" fill="#00ffc8" font-size="38" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" filter="url(#soft9)">12</text>
+  <text x="450" y="330" fill="rgba(255,255,255,0.5)" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="middle">通过率</text>
+  <text x="450" y="370" fill="#00ffc8" font-size="38" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="middle" filter="url(#soft9)">100%</text>
+  <text x="680" y="330" fill="rgba(255,255,255,0.5)" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="end">失败数</text>
+  <text x="680" y="370" fill="#00ffc8" font-size="38" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="end" filter="url(#soft9)">0</text>
+  <g transform="translate(130, 400)">
+    <rect x="0" y="0" width="100" height="32" rx="8" fill="rgba(0,255,200,0.1)" stroke="#00ffc8" stroke-width="1"/>
+    <text x="50" y="22" text-anchor="middle" fill="#00ffc8" font-size="13" font-family="KaiTi, STKaiti, 楷体, serif">Load操作</text>
+  </g>
+  <g transform="translate(245, 400)">
+    <rect x="0" y="0" width="100" height="32" rx="8" fill="rgba(0,212,255,0.1)" stroke="#00d4ff" stroke-width="1"/>
+    <text x="50" y="22" text-anchor="middle" fill="#00d4ff" font-size="13" font-family="KaiTi, STKaiti, 楷体, serif">Store操作</text>
+  </g>
+  <g transform="translate(360, 400)">
+    <rect x="0" y="0" width="100" height="32" rx="8" fill="rgba(191,0,255,0.1)" stroke="#bf00ff" stroke-width="1"/>
+    <text x="50" y="22" text-anchor="middle" fill="#bf00ff" font-size="13" font-family="KaiTi, STKaiti, 楷体, serif">数据转发</text>
+  </g>
+  <g transform="translate(475, 400)">
+    <rect x="0" y="0" width="100" height="32" rx="8" fill="rgba(0,255,200,0.1)" stroke="#00ffc8" stroke-width="1"/>
+    <text x="50" y="22" text-anchor="middle" fill="#00ffc8" font-size="13" font-family="KaiTi, STKaiti, 楷体, serif">队列排序</text>
+  </g>
+  <g transform="translate(590, 400)">
+    <rect x="0" y="0" width="100" height="32" rx="8" fill="rgba(0,212,255,0.1)" stroke="#00d4ff" stroke-width="1"/>
+    <text x="50" y="22" text-anchor="middle" fill="#00d4ff" font-size="13" font-family="KaiTi, STKaiti, 楷体, serif">刷新清空</text>
+  </g>
+  <text x="450" y="490" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="12" font-family="KaiTi, STKaiti, 楷体, serif">
+    Store-to-Load转发 · 程序顺序提交 · 队列分配管理
+  </text>
+</svg>

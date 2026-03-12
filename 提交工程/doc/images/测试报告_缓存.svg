@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+    <radialGradient id="bg8" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" style="stop-color:#0f1a2e"/>
+      <stop offset="50%" style="stop-color:#080d15"/>
+      <stop offset="100%" style="stop-color:#020305"/>
+    </radialGradient>
+    
+    <linearGradient id="aurora8a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffc8"/>
+      <stop offset="100%" style="stop-color:#00a86b"/>
+    </linearGradient>
+    
+    <linearGradient id="aurora8b" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="50%" style="stop-color:#00ffc8"/>
+      <stop offset="100%" style="stop-color:#00d4ff"/>
+      <animate attributeName="x1" values="0%;100%;0%" dur="7s" repeatCount="indefinite"/>
+    </linearGradient>
+    
+    <linearGradient id="glass8" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.12)"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.02)"/>
+    </linearGradient>
+    
+    <filter id="glow8" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur1"/>
+      <feGaussianBlur stdDeviation="3" result="blur2"/>
+      <feMerge><feMergeNode in="blur1"/><feMergeNode in="blur2"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    
+    <filter id="soft8" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+    
+    <filter id="auroraBlur8" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  
+  <rect width="900" height="550" fill="url(#bg8)"/>
+  
+  <!-- 星云 -->
+  <ellipse cx="180" cy="130" rx="260" ry="85" fill="#00ffc8" opacity="0.03" filter="url(#auroraBlur8)"/>
+  <ellipse cx="720" cy="420" rx="240" ry="75" fill="#00d4ff" opacity="0.028" filter="url(#auroraBlur8)"/>
+  <ellipse cx="400" cy="300" rx="320" ry="110" fill="#bf00ff" opacity="0.012" filter="url(#auroraBlur8)"/>
+  
+  <!-- 极光 -->
+  <path d="M-50,30 Q200,0 450,40 T950,20" stroke="#00d4ff" stroke-width="50" fill="none" opacity="0.11" filter="url(#auroraBlur8)">
+    <animate attributeName="d" values="M-50,30 Q200,0 450,40 T950,20;M-50,15 Q200,45 450,10 T950,35;M-50,30 Q200,0 450,40 T950,20" dur="8s" repeatCount="indefinite"/>
+  </path>
+  <path d="M-50,70 Q230,35 520,80 T950,55" stroke="#00ffc8" stroke-width="38" fill="none" opacity="0.08" filter="url(#auroraBlur8)">
+    <animate attributeName="d" values="M-50,70 Q230,35 520,80 T950,55;M-50,55 Q230,80 520,45 T950,70;M-50,70 Q230,35 520,80 T950,55" dur="10s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- 星星 -->
+  <circle cx="65" cy="60" r="1.7" fill="white" opacity="0.8"><animate attributeName="opacity" values="0.8;0.3;0.8" dur="2.9s" repeatCount="indefinite"/></circle>
+  <circle cx="155" cy="100" r="1.2" fill="white" opacity="0.6"/>
+  <circle cx="285" cy="55" r="2" fill="white" opacity="0.88"><animate attributeName="opacity" values="0.88;0.38;0.88" dur="2.4s" repeatCount="indefinite"/></circle>
+  <circle cx="425" cy="42" r="1.5" fill="white" opacity="0.68"/>
+  <circle cx="585" cy="78" r="1.8" fill="white" opacity="0.78"><animate attributeName="opacity" values="0.78;0.28;0.78" dur="3.3s" repeatCount="indefinite"/></circle>
+  <circle cx="725" cy="58" r="1.3" fill="white" opacity="0.62"/>
+  <circle cx="845" cy="92" r="1.95" fill="white" opacity="0.87"><animate attributeName="opacity" values="0.87;0.37;0.87" dur="2.7s" repeatCount="indefinite"/></circle>
+  <circle cx="105" cy="495" r="1.45" fill="white" opacity="0.67"/>
+  <circle cx="315" cy="518" r="1.75" fill="white" opacity="0.77"><animate attributeName="opacity" values="0.77;0.27;0.77" dur="3.1s" repeatCount="indefinite"/></circle>
+  <circle cx="555" cy="508" r="1.15" fill="white" opacity="0.57"/>
+  <circle cx="755" cy="528" r="1.55" fill="white" opacity="0.72"/>
+  
+  <!-- 流星 -->
+  <line x1="820" y1="50" x2="760" y2="110" stroke="url(#aurora8a)" stroke-width="2" stroke-linecap="round" opacity="0">
+    <animate attributeName="opacity" values="0;0.9;0" dur="4.5s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- 主卡片 -->
+  <rect x="100" y="160" width="700" height="280" rx="25" fill="url(#glass8)" stroke="url(#aurora8b)" stroke-width="1.5"/>
+  
+  <!-- 状态指示灯 -->
+  <circle cx="170" cy="230" r="35" fill="#00ffc8" filter="url(#glow8)" opacity="0.95">
+    <animate attributeName="r" values="35;38;35" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="170" y="242" text-anchor="middle" fill="#020305" font-size="32" font-weight="bold">✓</text>
+  
+  <!-- 标题 -->
+  <text x="480" y="225" text-anchor="middle" fill="url(#aurora8b)" font-size="42" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" filter="url(#glow8)">缓存单元测试</text>
+  <text x="480" y="265" text-anchor="middle" fill="#00d4ff" font-size="16" font-family="KaiTi, STKaiti, 楷体, serif" opacity="0.8">Property 10 · Cache一致性验证</text>
+  
+  <!-- 统计数据 -->
+  <text x="220" y="330" fill="rgba(255,255,255,0.5)" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif">测试总数</text>
+  <text x="220" y="370" fill="#00ffc8" font-size="38" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" filter="url(#soft8)">12</text>
+  
+  <text x="450" y="330" fill="rgba(255,255,255,0.5)" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="middle">通过率</text>
+  <text x="450" y="370" fill="#00ffc8" font-size="38" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="middle" filter="url(#soft8)">100%</text>
+  
+  <text x="680" y="330" fill="rgba(255,255,255,0.5)" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="end">失败数</text>
+  <text x="680" y="370" fill="#00ffc8" font-size="38" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="end" filter="url(#soft8)">0</text>
+  
+  <!-- 测试项标签 -->
+  <g transform="translate(130, 400)">
+    <rect x="0" y="0" width="100" height="32" rx="8" fill="rgba(0,255,200,0.1)" stroke="#00ffc8" stroke-width="1"/>
+    <text x="50" y="22" text-anchor="middle" fill="#00ffc8" font-size="13" font-family="KaiTi, STKaiti, 楷体, serif">指令缓存</text>
+  </g>
+  <g transform="translate(245, 400)">
+    <rect x="0" y="0" width="100" height="32" rx="8" fill="rgba(0,212,255,0.1)" stroke="#00d4ff" stroke-width="1"/>
+    <text x="50" y="22" text-anchor="middle" fill="#00d4ff" font-size="13" font-family="KaiTi, STKaiti, 楷体, serif">数据缓存</text>
+  </g>
+  <g transform="translate(360, 400)">
+    <rect x="0" y="0" width="100" height="32" rx="8" fill="rgba(191,0,255,0.1)" stroke="#bf00ff" stroke-width="1"/>
+    <text x="50" y="22" text-anchor="middle" fill="#bf00ff" font-size="13" font-family="KaiTi, STKaiti, 楷体, serif">LRU替换</text>
+  </g>
+  <g transform="translate(475, 400)">
+    <rect x="0" y="0" width="100" height="32" rx="8" fill="rgba(0,255,200,0.1)" stroke="#00ffc8" stroke-width="1"/>
+    <text x="50" y="22" text-anchor="middle" fill="#00ffc8" font-size="13" font-family="KaiTi, STKaiti, 楷体, serif">写回策略</text>
+  </g>
+  <g transform="translate(590, 400)">
+    <rect x="0" y="0" width="100" height="32" rx="8" fill="rgba(0,212,255,0.1)" stroke="#00d4ff" stroke-width="1"/>
+    <text x="50" y="22" text-anchor="middle" fill="#00d4ff" font-size="13" font-family="KaiTi, STKaiti, 楷体, serif">刷新操作</text>
+  </g>
+  
+  <!-- 底部说明 -->
+  <text x="450" y="490" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="12" font-family="KaiTi, STKaiti, 楷体, serif">
+    I-Cache/D-Cache · 字节/半字/字访问 · Write-Back写回
+  </text>
+</svg>

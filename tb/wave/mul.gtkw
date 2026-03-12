@@ -1,0 +1,32 @@
+[*]
+[*] GTKWave Analyzer - MUL Unit Test
+[*]
+[dumpfile] "sim/waves/mul_wave.vcd"
+[savefile] "tb/wave/mul.gtkw"
+[timestart] 0
+[size] 1400 800
+[pos] -1 -1
+*-16.000000 25 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_mul_wave.
+[sst_width] 250
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@28
+tb_mul_wave.clk
+tb_mul_wave.rst_n
+tb_mul_wave.valid_i
+tb_mul_wave.valid_o
+tb_mul_wave.busy_o
+@22
+tb_mul_wave.op_i[1:0]
+@23
+tb_mul_wave.src1_i[31:0]
+tb_mul_wave.src2_i[31:0]
+tb_mul_wave.result_o[31:0]
+@22
+tb_mul_wave.prd_i[5:0]
+tb_mul_wave.prd_o[5:0]
+tb_mul_wave.rob_idx_o[4:0]
+[pattern_trace] 1
+[pattern_trace] 0

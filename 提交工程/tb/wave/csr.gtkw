@@ -1,0 +1,51 @@
+[*]
+[*] GTKWave Analyzer - CSR Unit Test
+[*]
+[dumpfile] "sim/waves/csr_wave.vcd"
+[savefile] "tb/wave/csr.gtkw"
+[timestart] 0
+[size] 1400 800
+[pos] -1 -1
+*-16.000000 25 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_csr_wave.
+[sst_width] 250
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@28
+tb_csr_wave.clk
+tb_csr_wave.rst_n
+@200
+-CSR Access
+@28
+tb_csr_wave.csr_valid_i
+@22
+tb_csr_wave.csr_addr_i[11:0]
+tb_csr_wave.csr_op_i[2:0]
+tb_csr_wave.csr_wdata_i[31:0]
+tb_csr_wave.csr_rdata_o[31:0]
+@28
+tb_csr_wave.csr_illegal_o
+@200
+-Exception
+@28
+tb_csr_wave.exception_i
+@22
+tb_csr_wave.exc_code_i[3:0]
+tb_csr_wave.exc_pc_i[31:0]
+@200
+-CSR Values
+@22
+tb_csr_wave.mtvec_o[31:0]
+tb_csr_wave.mepc_o[31:0]
+@28
+tb_csr_wave.mie_o
+tb_csr_wave.mret_i
+@200
+-Interrupts
+@28
+tb_csr_wave.ext_irq_i
+tb_csr_wave.timer_irq_i
+tb_csr_wave.irq_pending_o
+[pattern_trace] 1
+[pattern_trace] 0

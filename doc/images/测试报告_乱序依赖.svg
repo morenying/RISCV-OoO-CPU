@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+    <radialGradient id="bg12" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" style="stop-color:#0f1a2e"/>
+      <stop offset="50%" style="stop-color:#080d15"/>
+      <stop offset="100%" style="stop-color:#020305"/>
+    </radialGradient>
+    <linearGradient id="aurora12a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffc8"/><stop offset="100%" style="stop-color:#00a86b"/>
+    </linearGradient>
+    <linearGradient id="aurora12b" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#bf00ff"/><stop offset="50%" style="stop-color:#00ffc8"/>
+      <stop offset="100%" style="stop-color:#bf00ff"/>
+      <animate attributeName="x1" values="0%;100%;0%" dur="7.5s" repeatCount="indefinite"/>
+    </linearGradient>
+    <linearGradient id="glass12" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.12)"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.02)"/>
+    </linearGradient>
+    <filter id="glow12" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur1"/><feGaussianBlur stdDeviation="3" result="blur2"/>
+      <feMerge><feMergeNode in="blur1"/><feMergeNode in="blur2"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft12" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2"/></filter>
+    <filter id="auroraBlur12" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="900" height="550" fill="url(#bg12)"/>
+  <ellipse cx="180" cy="130" rx="280" ry="92" fill="#bf00ff" opacity="0.03" filter="url(#auroraBlur12)"/>
+  <ellipse cx="720" cy="420" rx="250" ry="80" fill="#00ffc8" opacity="0.028" filter="url(#auroraBlur12)"/>
+
+  <ellipse cx="450" cy="290" rx="340" ry="115" fill="#00d4ff" opacity="0.012" filter="url(#auroraBlur12)"/>
+  <path d="M-50,25 Q200,0 440,35 T950,15" stroke="#bf00ff" stroke-width="55" fill="none" opacity="0.095" filter="url(#auroraBlur12)">
+    <animate attributeName="d" values="M-50,25 Q200,0 440,35 T950,15;M-50,10 Q200,40 440,5 T950,30;M-50,25 Q200,0 440,35 T950,15" dur="9s" repeatCount="indefinite"/>
+  </path>
+  <path d="M-50,65 Q250,30 550,75 T950,50" stroke="#00ffc8" stroke-width="38" fill="none" opacity="0.07" filter="url(#auroraBlur12)">
+    <animate attributeName="d" values="M-50,65 Q250,30 550,75 T950,50;M-50,50 Q250,75 550,40 T950,65;M-50,65 Q250,30 550,75 T950,50" dur="11s" repeatCount="indefinite"/>
+  </path>
+  <circle cx="55" cy="45" r="1.88" fill="white" opacity="0.85"><animate attributeName="opacity" values="0.85;0.35;0.85" dur="2.68s" repeatCount="indefinite"/></circle>
+  <circle cx="145" cy="85" r="1.28" fill="white" opacity="0.65"/>
+  <circle cx="275" cy="42" r="2.1" fill="white" opacity="0.9"><animate attributeName="opacity" values="0.9;0.4;0.9" dur="2.28s" repeatCount="indefinite"/></circle>
+  <circle cx="415" cy="28" r="1.5" fill="white" opacity="0.7"/>
+  <circle cx="575" cy="62" r="1.8" fill="white" opacity="0.78"><animate attributeName="opacity" values="0.78;0.28;0.78" dur="3.12s" repeatCount="indefinite"/></circle>
+  <circle cx="715" cy="45" r="1.28" fill="white" opacity="0.6"/>
+  <circle cx="835" cy="78" r="1.98" fill="white" opacity="0.88"><animate attributeName="opacity" values="0.88;0.38;0.88" dur="2.58s" repeatCount="indefinite"/></circle>
+  <circle cx="95" cy="482" r="1.48" fill="white" opacity="0.68"/>
+  <circle cx="305" cy="502" r="1.78" fill="white" opacity="0.76"><animate attributeName="opacity" values="0.76;0.26;0.76" dur="2.98s" repeatCount="indefinite"/></circle>
+  <circle cx="545" cy="492" r="1.18" fill="white" opacity="0.56"/>
+  <circle cx="745" cy="512" r="1.58" fill="white" opacity="0.71"/>
+  <line x1="170" y1="38" x2="110" y2="98" stroke="#bf00ff" stroke-width="1.8" stroke-linecap="round" opacity="0">
+    <animate attributeName="opacity" values="0;0.8;0" dur="5.2s" repeatCount="indefinite" begin="1.5s"/>
+  </line>
+  <line x1="820" y1="58" x2="760" y2="118" stroke="url(#aurora12a)" stroke-width="2" stroke-linecap="round" opacity="0">
+    <animate attributeName="opacity" values="0;0.88;0" dur="4.5s" repeatCount="indefinite"/>
+  </line>
+  <rect x="100" y="160" width="700" height="280" rx="25" fill="url(#glass12)" stroke="url(#aurora12b)" stroke-width="1.5"/>
+  <circle cx="170" cy="230" r="35" fill="#00ffc8" filter="url(#glow12)" opacity="0.95">
+    <animate attributeName="r" values="35;38;35" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="170" y="242" text-anchor="middle" fill="#020305" font-size="32" font-weight="bold">✓</text>
+  <text x="480" y="225" text-anchor="middle" fill="url(#aurora12b)" font-size="42" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" filter="url(#glow12)">乱序依赖测试</text>
+  <text x="480" y="265" text-anchor="middle" fill="#00d4ff" font-size="16" font-family="KaiTi, STKaiti, 楷体, serif" opacity="0.8">Property 13-16 · RAW/WAW/WAR/ROB顺序</text>
+  <text x="220" y="330" fill="rgba(255,255,255,0.5)" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif">测试总数</text>
+  <text x="220" y="370" fill="#00ffc8" font-size="38" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" filter="url(#soft12)">6</text>
+  <text x="450" y="330" fill="rgba(255,255,255,0.5)" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="middle">通过率</text>
+  <text x="450" y="370" fill="#00ffc8" font-size="38" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="middle" filter="url(#soft12)">100%</text>
+  <text x="680" y="330" fill="rgba(255,255,255,0.5)" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="end">失败数</text>
+  <text x="680" y="370" fill="#00ffc8" font-size="38" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="end" filter="url(#soft12)">0</text>
+  <g transform="translate(130, 400)">
+    <rect x="0" y="0" width="95" height="32" rx="8" fill="rgba(0,255,200,0.1)" stroke="#00ffc8" stroke-width="1"/>
+    <text x="47" y="22" text-anchor="middle" fill="#00ffc8" font-size="13" font-family="KaiTi, STKaiti, 楷体, serif">RAW依赖</text>
+  </g>
+  <g transform="translate(240, 400)">
+    <rect x="0" y="0" width="95" height="32" rx="8" fill="rgba(0,212,255,0.1)" stroke="#00d4ff" stroke-width="1"/>
+    <text x="47" y="22" text-anchor="middle" fill="#00d4ff" font-size="13" font-family="KaiTi, STKaiti, 楷体, serif">WAW依赖</text>
+  </g>
+  <g transform="translate(350, 400)">
+    <rect x="0" y="0" width="95" height="32" rx="8" fill="rgba(191,0,255,0.1)" stroke="#bf00ff" stroke-width="1"/>
+    <text x="47" y="22" text-anchor="middle" fill="#bf00ff" font-size="13" font-family="KaiTi, STKaiti, 楷体, serif">WAR依赖</text>
+  </g>
+  <g transform="translate(460, 400)">
+    <rect x="0" y="0" width="95" height="32" rx="8" fill="rgba(0,255,200,0.1)" stroke="#00ffc8" stroke-width="1"/>
+    <text x="47" y="22" text-anchor="middle" fill="#00ffc8" font-size="13" font-family="KaiTi, STKaiti, 楷体, serif">ROB顺序</text>
+  </g>
+  <g transform="translate(570, 400)">
+    <rect x="0" y="0" width="95" height="32" rx="8" fill="rgba(0,212,255,0.1)" stroke="#00d4ff" stroke-width="1"/>
+    <text x="47" y="22" text-anchor="middle" fill="#00d4ff" font-size="13" font-family="KaiTi, STKaiti, 楷体, serif">Free List</text>
+  </g>
+  <text x="450" y="490" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="12" font-family="KaiTi, STKaiti, 楷体, serif">
+    寄存器重命名 · 乱序完成顺序提交 · x0恒为零
+  </text>
+</svg>

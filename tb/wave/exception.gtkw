@@ -1,0 +1,46 @@
+[*]
+[*] GTKWave Analyzer - Exception Unit Test
+[*]
+[dumpfile] "sim/waves/exception_wave.vcd"
+[savefile] "tb/wave/exception.gtkw"
+[timestart] 0
+[size] 1400 800
+[pos] -1 -1
+*-16.000000 25 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_exception_wave.
+[sst_width] 250
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@28
+tb_exception_wave.clk
+tb_exception_wave.rst_n
+@200
+-Exception Sources
+@28
+tb_exception_wave.illegal_instr_i
+tb_exception_wave.instr_misalign_i
+tb_exception_wave.load_misalign_i
+tb_exception_wave.store_misalign_i
+tb_exception_wave.ecall_i
+tb_exception_wave.ebreak_i
+tb_exception_wave.mret_i
+@200
+-Exception Output
+@28
+tb_exception_wave.exception_o
+@22
+tb_exception_wave.exc_code_o[3:0]
+tb_exception_wave.exc_pc_o[31:0]
+tb_exception_wave.exc_tval_o[31:0]
+@200
+-Control
+@28
+tb_exception_wave.flush_o
+tb_exception_wave.redirect_valid_o
+@22
+tb_exception_wave.redirect_pc_o[31:0]
+tb_exception_wave.mtvec_i[31:0]
+tb_exception_wave.mepc_i[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

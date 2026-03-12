@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/><stop offset="50%" style="stop-color:#0d2040"/><stop offset="100%" style="stop-color:#051a1a"/>
+    </linearGradient>
+    <linearGradient id="au5" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffcc00;stop-opacity:0"/><stop offset="50%" style="stop-color:#ffdd44;stop-opacity:0.5"/><stop offset="100%" style="stop-color:#ff8800;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="g5"><feGaussianBlur stdDeviation="2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg5)"/>
+  <g opacity="0.7">
+    <circle cx="40" cy="30" r="1.5" fill="#fff"/><circle cx="150" cy="50" r="1" fill="#adf"/><circle cx="300" cy="25" r="2" fill="#fff"/>
+    <circle cx="500" cy="45" r="1" fill="#8cf"/><circle cx="650" cy="35" r="1.5" fill="#fff"/><circle cx="760" cy="55" r="1" fill="#adf"/>
+    <circle cx="80" cy="420" r="1" fill="#fff"/><circle cx="400" cy="430" r="1.5" fill="#adf"/><circle cx="720" cy="425" r="1" fill="#8cf"/>
+  </g>
+  <ellipse cx="400" cy="60" rx="300" ry="40" fill="url(#au5)" opacity="0.4"/>
+  
+  <text x="400" y="55" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="32" fill="#ffdd44" filter="url(#g5)">发射阶段 IS Stage</text>
+  <text x="400" y="85" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffcc00">Issue Stage · 保留站调度 · 动态指令发射</text>
+  
+  <g transform="translate(40, 115)">
+    <rect x="0" y="0" width="350" height="180" rx="10" fill="rgba(100,80,0,0.3)" stroke="#ffcc00" stroke-width="1.5"/>
+    <text x="175" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#ffdd44">保留站 Reservation Stations</text>
+    <line x1="10" y1="35" x2="340" y2="35" stroke="#ffcc00" opacity="0.3"/>
+    
+    <g transform="translate(15, 45)">
+      <rect x="0" y="0" width="100" height="25" rx="4" fill="rgba(255,204,0,0.2)" stroke="#ffcc00"/>
+      <text x="50" y="17" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffeebb">RS_ALU (4项)</text>
+    </g>
+    <g transform="translate(120, 45)">
+      <rect x="0" y="0" width="100" height="25" rx="4" fill="rgba(255,204,0,0.2)" stroke="#ffcc00"/>
+      <text x="50" y="17" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffeebb">RS_MUL (4项)</text>
+    </g>
+    <g transform="translate(225, 45)">
+      <rect x="0" y="0" width="100" height="25" rx="4" fill="rgba(255,204,0,0.2)" stroke="#ffcc00"/>
+      <text x="50" y="17" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffeebb">RS_DIV (4项)</text>
+    </g>
+    <g transform="translate(15, 80)">
+      <rect x="0" y="0" width="100" height="25" rx="4" fill="rgba(255,204,0,0.2)" stroke="#ffcc00"/>
+      <text x="50" y="17" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffeebb">RS_BRU (4项)</text>
+    </g>
+    <g transform="translate(120, 80)">
+      <rect x="0" y="0" width="100" height="25" rx="4" fill="rgba(255,204,0,0.2)" stroke="#ffcc00"/>
+      <text x="50" y="17" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffeebb">RS_LSU (4项)</text>
+    </g>
+    <g transform="translate(225, 80)">
+      <rect x="0" y="0" width="100" height="25" rx="4" fill="rgba(255,170,0,0.15)" stroke="#ffaa00"/>
+      <text x="50" y="17" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffcc88">总计 20 项</text>
+    </g>
+    
+    <text x="15" y="130" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffeebb">RS项结构: Op | Src1 | V1 | Src2 | V2 | Dest | ROB#</text>
+    <text x="15" y="150" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ddcc88">• 监听 CDB 获取操作数</text>
+    <text x="15" y="168" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ddcc88">• 操作数就绪后可发射</text>
+  </g>
+  
+  <g transform="translate(410, 115)">
+    <rect x="0" y="0" width="180" height="180" rx="10" fill="rgba(0,80,100,0.3)" stroke="#00aaff" stroke-width="1.5"/>
+    <text x="90" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ccff">PRF 读取</text>
+    <line x1="10" y1="35" x2="170" y2="35" stroke="#00aaff" opacity="0.3"/>
+    <text x="15" y="60" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 64个物理寄存器</text>
+    <text x="15" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 4个读端口</text>
+    <text x="15" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 就绪位跟踪</text>
+    <text x="15" y="120" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 旁路网络</text>
+    <text x="15" y="145" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#88aadd">从 CDB 或 PRF</text>
+    <text x="15" y="163" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#88aadd">获取操作数值</text>
+  </g>
+  
+  <g transform="translate(610, 115)">
+    <rect x="0" y="0" width="150" height="180" rx="10" fill="rgba(0,100,80,0.3)" stroke="#00ffaa" stroke-width="1.5"/>
+    <text x="75" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ffcc">选择逻辑</text>
+    <line x1="10" y1="35" x2="140" y2="35" stroke="#00ffaa" opacity="0.3"/>
+    <text x="15" y="60" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 就绪检测</text>
+    <text x="15" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 年龄优先</text>
+    <text x="15" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 仲裁逻辑</text>
+    <text x="15" y="120" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 发射使能</text>
+    <text x="15" y="145" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#88ddcc">选择最老的</text>
+    <text x="15" y="163" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#88ddcc">就绪指令发射</text>
+  </g>
+  
+  <g transform="translate(40, 310)">
+    <rect x="0" y="0" width="720" height="100" rx="8" fill="rgba(0,40,60,0.25)" stroke="#ffcc00" stroke-width="1"/>
+    <text x="360" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffdd44">发射流程</text>
+    <text x="20" y="50" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">1. 指令进入对应功能单元的保留站</text>
+    <text x="20" y="70" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">2. 监听 CDB，捕获所需操作数</text>
+    <text x="20" y="90" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">3. 操作数就绪后，选择最老指令发射</text>
+    <text x="400" y="50" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">唤醒机制:</text>
+    <text x="400" y="70" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• CDB 广播结果时唤醒等待指令</text>
+    <text x="400" y="90" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 支持推测唤醒 (提前1周期)</text>
+  </g>
+  
+  <text x="400" y="435" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#668888" opacity="0.7">IS Stage · 发射阶段</text>
+</svg>

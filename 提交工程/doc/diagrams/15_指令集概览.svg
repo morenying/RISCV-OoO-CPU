@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg15" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/><stop offset="50%" style="stop-color:#0d2040"/><stop offset="100%" style="stop-color:#051a1a"/>
+    </linearGradient>
+    <linearGradient id="au15" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ffcc;stop-opacity:0"/><stop offset="50%" style="stop-color:#00ffaa;stop-opacity:0.5"/><stop offset="100%" style="stop-color:#00aaff;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="g15"><feGaussianBlur stdDeviation="2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg15)"/>
+  <g opacity="0.7">
+    <circle cx="40" cy="30" r="1.5" fill="#fff"/><circle cx="150" cy="50" r="1" fill="#adf"/><circle cx="300" cy="25" r="2" fill="#fff"/>
+    <circle cx="500" cy="45" r="1" fill="#8cf"/><circle cx="650" cy="35" r="1.5" fill="#fff"/><circle cx="760" cy="55" r="1" fill="#adf"/>
+    <circle cx="80" cy="470" r="1" fill="#fff"/><circle cx="400" cy="480" r="1.5" fill="#adf"/><circle cx="720" cy="475" r="1" fill="#8cf"/>
+  </g>
+  <ellipse cx="400" cy="60" rx="300" ry="40" fill="url(#au15)" opacity="0.4"/>
+  
+  <text x="400" y="55" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="32" fill="#00ffaa" filter="url(#g15)">RV32IM 指令集</text>
+  <text x="400" y="85" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#00ffcc">RISC-V 32位整数 + 乘除扩展 · 共54条指令</text>
+  
+  <!-- RV32I -->
+  <g transform="translate(40, 110)">
+    <rect x="0" y="0" width="350" height="200" rx="10" fill="rgba(0,100,80,0.3)" stroke="#00ffaa" stroke-width="1.5"/>
+    <text x="175" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ffcc">RV32I 基础指令集 (40条)</text>
+    <line x1="10" y1="35" x2="340" y2="35" stroke="#00ffaa" opacity="0.3"/>
+    
+    <text x="15" y="55" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">算术: ADD SUB ADDI</text>
+    <text x="15" y="73" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">逻辑: AND OR XOR ANDI ORI XORI</text>
+    <text x="15" y="91" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">移位: SLL SRL SRA SLLI SRLI SRAI</text>
+    <text x="15" y="109" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">比较: SLT SLTU SLTI SLTIU</text>
+    <text x="15" y="127" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">分支: BEQ BNE BLT BGE BLTU BGEU</text>
+    <text x="15" y="145" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">跳转: JAL JALR</text>
+    <text x="15" y="163" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">加载: LB LH LW LBU LHU</text>
+    <text x="15" y="181" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">存储: SB SH SW</text>
+    <text x="200" y="181" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">其他: LUI AUIPC FENCE</text>
+  </g>
+  
+  <!-- RV32M -->
+  <g transform="translate(410, 110)">
+    <rect x="0" y="0" width="170" height="200" rx="10" fill="rgba(80,80,0,0.3)" stroke="#cccc00" stroke-width="1.5"/>
+    <text x="85" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#dddd44">RV32M (8条)</text>
+    <line x1="10" y1="35" x2="160" y2="35" stroke="#cccc00" opacity="0.3"/>
+    
+    <text x="15" y="60" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#eeeebb">乘法:</text>
+    <text x="15" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ddddaa">MUL MULH</text>
+    <text x="15" y="98" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ddddaa">MULHSU MULHU</text>
+    
+    <text x="15" y="125" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#eeeebb">除法:</text>
+    <text x="15" y="145" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ddddaa">DIV DIVU</text>
+    <text x="15" y="163" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ddddaa">REM REMU</text>
+  </g>
+  
+  <!-- Zicsr -->
+  <g transform="translate(600, 110)">
+    <rect x="0" y="0" width="160" height="200" rx="10" fill="rgba(80,0,80,0.3)" stroke="#ff88ff" stroke-width="1.5"/>
+    <text x="80" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#ffaaff">Zicsr (6条)</text>
+    <line x1="10" y1="35" x2="150" y2="35" stroke="#ff88ff" opacity="0.3"/>
+    
+    <text x="15" y="60" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffccff">寄存器操作:</text>
+    <text x="15" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ddaadd">CSRRW CSRRS</text>
+    <text x="15" y="98" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ddaadd">CSRRC</text>
+    
+    <text x="15" y="125" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffccff">立即数操作:</text>
+    <text x="15" y="145" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ddaadd">CSRRWI CSRRSI</text>
+    <text x="15" y="163" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ddaadd">CSRRCI</text>
+  </g>
+  
+  <!-- 指令格式 -->
+  <g transform="translate(40, 330)">
+    <rect x="0" y="0" width="720" height="130" rx="8" fill="rgba(0,40,60,0.25)" stroke="#00aaff" stroke-width="1"/>
+    <text x="360" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#00ccff">指令格式 (32位固定长度)</text>
+    
+    <g transform="translate(20, 40)">
+      <rect x="0" y="0" width="130" height="35" rx="4" fill="rgba(0,255,170,0.15)" stroke="#00ffaa"/>
+      <text x="65" y="15" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#00ffcc">R-Type</text>
+      <text x="65" y="28" text-anchor="middle" font-family="monospace" font-size="8" fill="#aaffcc">funct7|rs2|rs1|f3|rd|op</text>
+    </g>
+    <g transform="translate(160, 40)">
+      <rect x="0" y="0" width="130" height="35" rx="4" fill="rgba(255,204,0,0.15)" stroke="#ffcc00"/>
+      <text x="65" y="15" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#ffdd44">I-Type</text>
+      <text x="65" y="28" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffeebb">imm[11:0]|rs1|f3|rd|op</text>
+    </g>
+    <g transform="translate(300, 40)">
+      <rect x="0" y="0" width="130" height="35" rx="4" fill="rgba(255,136,170,0.15)" stroke="#ff88aa"/>
+      <text x="65" y="15" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#ffaacc">S-Type</text>
+      <text x="65" y="28" text-anchor="middle" font-family="monospace" font-size="8" fill="#ffccdd">imm|rs2|rs1|f3|imm|op</text>
+    </g>
+    <g transform="translate(440, 40)">
+      <rect x="0" y="0" width="130" height="35" rx="4" fill="rgba(170,136,255,0.15)" stroke="#aa88ff"/>
+      <text x="65" y="15" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#bb99ff">B-Type</text>
+      <text x="65" y="28" text-anchor="middle" font-family="monospace" font-size="8" fill="#ccaaff">imm|rs2|rs1|f3|imm|op</text>
+    </g>
+    <g transform="translate(580, 40)">
+      <rect x="0" y="0" width="120" height="35" rx="4" fill="rgba(0,170,255,0.15)" stroke="#00aaff"/>
+      <text x="60" y="15" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#00ccff">U/J-Type</text>
+      <text x="60" y="28" text-anchor="middle" font-family="monospace" font-size="8" fill="#aaddff">imm[31:12]|rd|op</text>
+    </g>
+    
+    <text x="20" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaddff">特点: 固定32位长度 · 规整的字段位置 · 简化译码逻辑 · 支持立即数符号扩展</text>
+  </g>
+  
+  <text x="400" y="485" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#668888" opacity="0.7">RV32IM · 指令集概览</text>
+</svg>

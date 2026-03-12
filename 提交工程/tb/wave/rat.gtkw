@@ -1,0 +1,44 @@
+[*]
+[*] GTKWave Analyzer - RAT Test
+[*]
+[dumpfile] "sim/waves/rat_wave.vcd"
+[savefile] "tb/wave/rat.gtkw"
+[timestart] 0
+[size] 1400 800
+[pos] -1 -1
+*-16.000000 25 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_rat_wave.
+[sst_width] 250
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@28
+tb_rat_wave.clk
+tb_rat_wave.rst_n
+@22
+tb_rat_wave.rs1_arch_i[4:0]
+tb_rat_wave.rs1_phys_o[5:0]
+@28
+tb_rat_wave.rs1_ready_o
+@22
+tb_rat_wave.rs2_arch_i[4:0]
+tb_rat_wave.rs2_phys_o[5:0]
+@28
+tb_rat_wave.rs2_ready_o
+tb_rat_wave.rename_valid_i
+@22
+tb_rat_wave.rd_arch_i[4:0]
+tb_rat_wave.rd_phys_new_i[5:0]
+tb_rat_wave.rd_phys_old_o[5:0]
+@28
+tb_rat_wave.cdb_valid_i
+@22
+tb_rat_wave.cdb_preg_i[5:0]
+@28
+tb_rat_wave.checkpoint_create_i
+tb_rat_wave.recover_i
+@22
+tb_rat_wave.checkpoint_id_i[2:0]
+tb_rat_wave.recover_id_i[2:0]
+[pattern_trace] 1
+[pattern_trace] 0

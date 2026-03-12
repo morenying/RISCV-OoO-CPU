@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="galaxyBg2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="25%" style="stop-color:#1a1a2e"/>
+      <stop offset="50%" style="stop-color:#16213e"/>
+      <stop offset="75%" style="stop-color:#0f3460"/>
+      <stop offset="100%" style="stop-color:#0a0a1a"/>
+    </linearGradient>
+    
+    <linearGradient id="aurora2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0.9">
+        <animate attributeName="stop-color" values="#00ff88;#00d4ff;#00ff88" dur="4s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:0.7">
+        <animate attributeName="stop-color" values="#00d4ff;#7b2cbf;#00d4ff" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#9d4edd;stop-opacity:0.5"/>
+    </linearGradient>
+    
+    <filter id="glow2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    
+    <filter id="neonGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="3" result="blur1"/>
+      <feGaussianBlur stdDeviation="6" result="blur2"/>
+      <feMerge><feMergeNode in="blur2"/><feMergeNode in="blur1"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    
+    <radialGradient id="nebula1" cx="30%" cy="30%" r="60%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#00ff88;stop-opacity:0"/>
+    </radialGradient>
+    
+    <radialGradient id="nebula2" cx="70%" cy="70%" r="50%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.25"/>
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  
+  <rect width="800" height="500" fill="url(#galaxyBg2)"/>
+  
+  <!-- 星云效果 -->
+  <ellipse cx="200" cy="150" rx="250" ry="150" fill="url(#nebula1)">
+    <animate attributeName="rx" values="250;280;250" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.7;1" dur="4s" repeatCount="indefinite"/>
+  </ellipse>
+  <ellipse cx="600" cy="350" rx="200" ry="120" fill="url(#nebula2)">
+    <animate attributeName="ry" values="120;140;120" dur="5s" repeatCount="indefinite"/>
+  </ellipse>
+  
+  <!-- 极光带 -->
+  <path d="M0,100 C150,50 300,120 400,80 S550,100 700,60 L800,80 L800,200 C650,180 500,220 400,180 S200,200 0,160 Z" fill="url(#aurora2)" opacity="0.25">
+    <animate attributeName="d" values="M0,100 C150,50 300,120 400,80 S550,100 700,60 L800,80 L800,200 C650,180 500,220 400,180 S200,200 0,160 Z;M0,120 C150,70 300,100 400,100 S550,80 700,80 L800,100 L800,220 C650,200 500,200 400,200 S200,180 0,180 Z;M0,100 C150,50 300,120 400,80 S550,100 700,60 L800,80 L800,200 C650,180 500,220 400,180 S200,200 0,160 Z" dur="8s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- 星星 -->
+  <g id="stars2">
+    <circle cx="45" cy="45" r="2" fill="#fff" filter="url(#neonGlow)"><animate attributeName="opacity" values="1;0.2;1" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="130" cy="70" r="1.5" fill="#00ff88" filter="url(#neonGlow)"><animate attributeName="opacity" values="0.8;0.3;0.8" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="220" cy="30" r="1" fill="#fff"><animate attributeName="opacity" values="0.6;1;0.6" dur="1.5s" repeatCount="indefinite"/></circle>
+    <circle cx="310" cy="85" r="2" fill="#00d4ff" filter="url(#neonGlow)"><animate attributeName="opacity" values="1;0.4;1" dur="2.8s" repeatCount="indefinite"/></circle>
+    <circle cx="400" cy="40" r="1.5" fill="#fff"><animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/></circle>
+    <circle cx="490" cy="75" r="1" fill="#9d4edd" filter="url(#neonGlow)"><animate attributeName="opacity" values="0.9;0.3;0.9" dur="1.7s" repeatCount="indefinite"/></circle>
+    <circle cx="580" cy="35" r="2" fill="#fff" filter="url(#neonGlow)"><animate attributeName="opacity" values="1;0.5;1" dur="2.5s" repeatCount="indefinit

@@ -1,0 +1,47 @@
+[*]
+[*] GTKWave Analyzer - Reservation Station Test
+[*]
+[dumpfile] "sim/waves/rs_wave.vcd"
+[savefile] "tb/wave/rs.gtkw"
+[timestart] 0
+[size] 1400 800
+[pos] -1 -1
+*-16.000000 25 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_rs_wave.
+[sst_width] 250
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@28
+tb_rs_wave.clk
+tb_rs_wave.rst_n
+tb_rs_wave.flush_i
+tb_rs_wave.dispatch_valid_i
+tb_rs_wave.dispatch_ready_o
+@22
+tb_rs_wave.dispatch_op_i[3:0]
+tb_rs_wave.dispatch_src1_preg_i[5:0]
+tb_rs_wave.dispatch_src1_data_i[31:0]
+@28
+tb_rs_wave.dispatch_src1_ready_i
+@22
+tb_rs_wave.dispatch_src2_preg_i[5:0]
+tb_rs_wave.dispatch_src2_data_i[31:0]
+@28
+tb_rs_wave.dispatch_src2_ready_i
+tb_rs_wave.issue_valid_o
+tb_rs_wave.issue_ready_i
+@22
+tb_rs_wave.issue_src1_data_o[31:0]
+tb_rs_wave.issue_src2_data_o[31:0]
+tb_rs_wave.issue_dst_preg_o[5:0]
+@28
+tb_rs_wave.cdb_valid_i
+@22
+tb_rs_wave.cdb_preg_i[5:0]
+tb_rs_wave.cdb_data_i[31:0]
+@28
+tb_rs_wave.empty_o
+tb_rs_wave.full_o
+[pattern_trace] 1
+[pattern_trace] 0

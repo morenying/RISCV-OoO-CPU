@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050520"/>
+      <stop offset="50%" style="stop-color:#0a1a3a"/>
+      <stop offset="100%" style="stop-color:#051515"/>
+    </linearGradient>
+    <linearGradient id="aurora1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#00ffcc;stop-opacity:0.7"/>
+      <stop offset="100%" style="stop-color:#0088ff;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="aurora2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0066ff;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#00ccff;stop-opacity:0.5"/>
+      <stop offset="100%" style="stop-color:#00ff99;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="boxGlow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  
+  <!-- 星空 -->
+  <g opacity="0.8">
+    <circle cx="80" cy="50" r="1.5" fill="#fff"/><circle cx="200" cy="80" r="1" fill="#adf"/>
+    <circle cx="350" cy="40" r="2" fill="#fff"/><circle cx="500" cy="90" r="1" fill="#8cf"/>
+    <circle cx="650" cy="30" r="1.5" fill="#fff"/><circle cx="800" cy="70" r="1" fill="#adf"/>
+    <circle cx="950" cy="55" r="2" fill="#fff"/><circle cx="1100" cy="85" r="1" fill="#8cf"/>
+    <circle cx="120" cy="150" r="1" fill="#fff"/><circle cx="400" cy="130" r="1.5" fill="#adf"/>
+    <circle cx="700" cy="140" r="1" fill="#fff"/><circle cx="1000" cy="120" r="1.5" fill="#8cf"/>
+    <circle cx="60" cy="850" r="1" fill="#fff"/><circle cx="300" cy="870" r="1.5" fill="#adf"/>
+    <circle cx="600" cy="840" r="1" fill="#fff"/><circle cx="900" cy="860" r="2" fill="#8cf"/>
+    <circle cx="1150" cy="830" r="1" fill="#fff"/>
+  </g>
+  
+  <!-- 极光 -->
+  <ellipse cx="600" cy="120" rx="550" ry="70" fill="url(#aurora1)" opacity="0.35"/>
+  <ellipse cx="400" cy="160" rx="400" ry="50" fill="url(#aurora2)" opacity="0.25"/>
+  
+  <!-- 标题 -->
+  <text x="600" y="80" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="48" fill="#00ffcc" filter="url(#glow)">七级流水线架构详解</text>
+  <text x="600" y="120" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="22" fill="#88ddff">IF → ID → RN → IS → EX → MEM → WB</text>
+
+  <!-- 流水线详细图 -->
+  <g transform="translate(50, 180)">
+    <!-- IF 取指阶段 -->
+    <g filter="url(#boxGlow)">
+      <rect x="0" y="0" width="150" height="280" rx="12" fill="rgba(0,80,60,0.35)" stroke="#00ffaa" stroke-width="2"/>
+      <text x="75" y="35" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="22" fill="#00ffcc">取指阶段</text>
+      <text x="75" y="60" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#88ffcc">IF Stage</text>
+      <line x1="15" y1="75" x2="135" y2="75" stroke="#00ffaa" opacity="0.4"/>
+      <text x="20" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffcc">• PC 程序计数器</text>
+      <text x="20" y="125" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffcc">• I-Cache 访问</text>
+      <text x="20" y="150" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffcc">• BPU 分支预测</text>
+      <text x="20" y="175" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffcc">• BTB 目标缓冲</text>
+      <text x="20" y="200" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffcc">• RAS 返回栈</text>
+      <text x="20" y="225" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffcc">• 指令对齐</text>
+      <rect x="20" y="245" width="110" height="25" rx="5" fill="rgba(0,255,170,0.15)" stroke="#00ffaa" stroke-width="1"/>
+      <text x="75" y="263" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#00ffcc">输出: 指令包</text>
+    </g>
+    
+    <!-- ID 译码阶段 -->
+    <g transform="translate(165, 0)" filter="url(#boxGlow)">
+      <rect x="0" y="0" width="150" height="280" rx="12" fill="rgba(0,60,80,0.35)" stroke="#00ccff" stroke-width="2"/>
+      <text x="75" y="35" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="22" fill="#00ddff">译码阶段</text>
+      <text x="75" y="60" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#88ddff">ID Stage</text>
+      <line x1="15" y1="75" x2="135" y2="75" stroke="#00ccff" opacity="0.4"/>
+      <text x="20" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaddff">• 指令解码器</text>
+      <text x="20" y="125" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaddff">• 立即数生成</text>
+      <text x="20" y="150" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaddff">• 操作码识别</text>
+      <text x="20" y="175" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaddff">• 寄存器索引</text>
+      <text x="20" y="200" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaddff">• 异常检测</text>
+      <text x="20" y="225" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaddff">• 控制信号</text>
+      <rect x="20" y="245" width="110" height="25" rx="5" fill="rgba(0,200,255,0.15)" stroke="#00ccff" stroke-width="1"/>
+      <text x="75" y="263" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#00ddff">输出: 微操作</text>
+    </g>
+    
+    <!-- RN 重命名阶段 -->
+    <g transform="translate(330, 0)" filter="url(#boxGlow)">
+      <rect x="0" y="0" width="150" height="280" rx="12" fill="rgba(60,0,80,0.35)" stroke="#aa88ff" stroke-width="2"/>
+      <text x="75" y="35" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="22" fill="#bb99ff">重命名阶段</text>
+      <text x="75" y="60" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#aa88ff">RN Stage</text>
+      <line x1="15" y1="75" x2="135" y2="75" stroke="#aa88ff" opacity="0.4"/>
+      <text x="20" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ccaaff">• RAT 别名表</text>
+      <text x="20" y="125" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ccaaff">• Free List</text>
+      <text x="20" y="150" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ccaaff">• 物理寄存器分配</text>
+      <text x="20" y="175" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ccaaff">• ROB 项分配</text>
+      <text x="20" y="200" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ccaaff">• 依赖检测</text>
+      <text x="20" y="225" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ccaaff">• WAW/WAR消除</text>
+      <rect x="20" y="245" width="110" height="25" rx="5" fill="rgba(170,136,255,0.15)" stroke="#aa88ff" stroke-width="1"/>
+      <text x="75" y="263" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#bb99ff">输出: 重命名指令</text>
+    </g>
+    
+    <!-- IS 发射阶段 -->
+    <g transform="translate(495, 0)" filter="url(#boxGlow)">
+      <rect x="0" y="0" width="150" height="280" rx="12" fill="rgba(80,60,0,0.35)" stroke="#ffcc00" stroke-width="2"/>
+      <text x="75" y="35" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="22" fill="#ffdd44">发射阶段</text>
+      <text x="75" y="60" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#ffcc00">IS Stage</text>
+      <line x1="15" y1="75" x2="135" y2="75" stroke="#ffcc00" opacity="0.4"/>
+      <text x="20" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffeebb">• 保留站调度</text>
+      <text x="20" y="125" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffeebb">• 操作数就绪检测</text>
+      <text x="20" y="150" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffeebb">• 唤醒逻辑</text>
+      <text x="20" y="175" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffeebb">• 选择逻辑</text>
+      <text x="20" y="200" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffeebb">• PRF 读取</text>
+      <text x="20" y="225" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffeebb">• 旁路网络</text>
+      <rect x="20" y="245" width="110" height="25" rx="5" fill="rgba(255,204,0,0.15)" stroke="#ffcc00" stroke-width="1"/>
+      <text x="75" y="263" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffdd44">输出: 就绪指令</text>
+    </g>
+    
+    <!-- EX 执行阶段 -->
+    <g transform="translate(660, 0)" filter="url(#boxGlow)">
+      <rect x="0" y="0" width="150" height="280" rx="12" fill="rgba(80,0,0,0.35)" stroke="#ff6666" stroke-width="2"/>
+      <text x="75" y="35" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="22" fill="#ff8888">执行阶段</text>
+      <text x="75" y="60" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#ff6666">EX Stage</text>
+      <line x1="15" y1="75" x2="135" y2="75" stroke="#ff6666" opacity="0.4"/>
+      <text x="20" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffaaaa">• ALU 运算</text>
+      <text x="20" y="125" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffaaaa">• MUL 乘法</text>
+      <text x="20" y="150" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffaaaa">• DIV 除法</text>
+      <text x="20" y="175" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffaaaa">• 分支计算</text>
+      <text x="20" y="200" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffaaaa">• 地址生成</text>
+      <text x="20" y="225" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#ffaaaa">• CDB 广播</text>
+      <rect x="20" y="245" width="110" height="25" rx="5" fill="rgba(255,102,102,0.15)" stroke="#ff6666" stroke-width="1"/>
+      <text x="75" y="263" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ff8888">输出: 执行结果</text>
+    </g>
+    
+    <!-- MEM 访存阶段 -->
+    <g transform="translate(825, 0)" filter="url(#boxGlow)">
+      <rect x="0" y="0" width="150" height="280" rx="12" fill="rgba(0,80,80,0.35)" stroke="#00dddd" stroke-width="2"/>
+      <text x="75" y="35" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="22" fill="#00eeee">访存阶段</text>
+      <text x="75" y="60" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00dddd">MEM Stage</text>
+      <line x1="15" y1="75" x2="135" y2="75" stroke="#00dddd" opacity="0.4"/>
+      <text x="20" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffff">• D-Cache 访问</text>
+      <text x="20" y="125" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffff">• Load Queue</text>
+      <text x="20" y="150" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffff">• Store Queue</text>
+      <text x="20" y="175" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffff">• 存储转发</text>
+      <text x="20" y="200" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffff">• 内存排序</text>
+      <text x="20" y="225" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffff">• 缺失处理</text>
+      <rect x="20" y="245" width="110" height="25" rx="5" fill="rgba(0,221,221,0.15)" stroke="#00dddd" stroke-width="1"/>
+      <text x="75" y="263" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#00eeee">输出: 内存数据</text>
+    </g>
+    
+    <!-- WB 写回阶段 -->
+    <g transform="translate(990, 0)" filter="url(#boxGlow)">
+      <rect x="0" y="0" width="150" height="280" rx="12" fill="rgba(0,100,50,0.35)" stroke="#00ff88" stroke-width="2"/>
+      <text x="75" y="35" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="22" fill="#00ff99">写回阶段</text>
+      <text x="75" y="60" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ff88">WB Stage</text>
+      <line x1="15" y1="75" x2="135" y2="75" stroke="#00ff88" opacity="0.4"/>
+      <text x="20" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffcc">• ROB 提交</text>
+      <text x="20" y="125" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffcc">• 架构状态更新</text>
+      <text x="20" y="150" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffcc">• PRF 写回</text>
+      <text x="20" y="175" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffcc">• 异常处理</text>
+      <text x="20" y="200" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffcc">• 物理寄存器释放</text>
+      <text x="20" y="225" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#aaffcc">• 精确异常</text>
+      <rect x="20" y="245" width="110" height="25" rx="5" fill="rgba(0,255,136,0.15)" stroke="#00ff88" stroke-width="1"/>
+      <text x="75" y="263" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#00ff99">输出: 提交结果</text>
+    </g>
+    
+    <!-- 连接箭头 -->
+    <g stroke-width="3" fill="none">
+      <path d="M150,140 L165,140" stroke="#00ffaa"/><polygon points="160,135 170,140 160,145" fill="#00ffaa"/>
+      <path d="M315,140 L330,140" stroke="#00ccff"/><polygon points="325,135 335,140 325,145" fill="#00ccff"/>
+      <path d="M480,140 L495,140" stroke="#aa88ff"/><polygon points="490,135 500,140 490,145" fill="#aa88ff"/>
+      <path d="M645,140 L660,140" stroke="#ffcc00"/><polygon points="655,135 665,140 655,145" fill="#ffcc00"/>
+      <path d="M810,140 L825,140" stroke="#ff6666"/><polygon points="820,135 830,140 820,145" fill="#ff6666"/>
+      <path d="M975,140 L990,140" stroke="#00dddd"/><polygon points="985,135 995,140 985,145" fill="#00dddd"/>
+    </g>
+  </g>
+  
+  <!-- 底部说明 -->
+  <g transform="translate(50, 520)">
+    <rect x="0" y="0" width="1100" height="320" rx="15" fill="rgba(0,30,50,0.3)" stroke="#00aaff" stroke-width="1"/>
+    <text x="550" y="35" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="24" fill="#00ddff" filter="url(#glow)">流水线特性说明</text>
+    
+    <g transform="translate(30, 60)">
+      <text x="0" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="18" fill="#00ffcc">▸ 乱序执行</text>
+      <text x="20" y="30" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aaddff">指令可以不按程序顺序执行，通过寄存器重命名消除假依赖，提高指令级并行度</text>
+      
+      <text x="0" y="70" font-family="KaiTi, STKaiti, 楷体, serif" font-size="18" fill="#00ffcc">▸ 顺序提交</text>
+      <text x="20" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aaddff">通过 ROB 保证指令按程序顺序提交，支持精确异常和分支误预测恢复</text>
+      
+      <text x="0" y="140" font-family="KaiTi, STKaiti, 楷体, serif" font-size="18" fill="#00ffcc">▸ 推测执行</text>
+      <text x="20" y="170" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aaddff">分支预测后推测执行后续指令，预测错误时回滚到正确路径</text>
+      
+      <text x="0" y="210" font-family="KaiTi, STKaiti, 楷体, serif" font-size="18" fill="#00ffcc">▸ 动态调度</text>
+      <text x="20" y="240" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#aaddff">保留站动态选择就绪指令发射，最大化功能单元利用率</text>
+    </g>
+    
+    <g transform="translate(580, 60)">
+      <text x="0" y="0" font-family="KaiTi, STKaiti, 楷体, serif" font-size="18" fill="#ffcc00">▸ 数据前递</text>
+      <text x="20" y="30" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffeebb">通过 CDB 广播执行结果，减少数据冒险导致的停顿</text>
+      
+      <text x="0" y="70" font-family="KaiTi, STKaiti, 楷体, serif" font-size="18" fill="#ffcc00">▸ 存储转发</text>
+      <text x="20" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffeebb">Store-to-Load Forwarding 减少内存访问延迟</text>
+      
+      <text x="0" y="140" font-family="KaiTi, STKaiti, 楷体, serif" font-size="18" fill="#ffcc00">▸ 分支预测</text>
+      <text x="20" y="170" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffeebb">TAGE + BTB + RAS 组合预测器，准确率 > 90%</text>
+      
+      <text x="0" y="210" font-family="KaiTi, STKaiti, 楷体, serif" font-size="18" fill="#ffcc00">▸ 缓存层次</text>
+      <text x="20" y="240" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffeebb">分离式 I-Cache 和 D-Cache，减少结构冒险</text>
+    </g>
+  </g>
+  
+  <text x="600" y="880" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#668888" opacity="0.7">RISC-V RV32IM 乱序执行处理器 · 七级流水线架构</text>
+</svg>

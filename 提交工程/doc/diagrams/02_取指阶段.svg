@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/><stop offset="50%" style="stop-color:#0d2040"/><stop offset="100%" style="stop-color:#051a1a"/>
+    </linearGradient>
+    <linearGradient id="au2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0"/><stop offset="50%" style="stop-color:#00ffcc;stop-opacity:0.5"/><stop offset="100%" style="stop-color:#0088ff;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="g2"><feGaussianBlur stdDeviation="2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg2)"/>
+  <g opacity="0.7">
+    <circle cx="40" cy="30" r="1.5" fill="#fff"/><circle cx="150" cy="50" r="1" fill="#adf"/><circle cx="300" cy="25" r="2" fill="#fff"/>
+    <circle cx="500" cy="45" r="1" fill="#8cf"/><circle cx="650" cy="35" r="1.5" fill="#fff"/><circle cx="760" cy="55" r="1" fill="#adf"/>
+    <circle cx="80" cy="420" r="1" fill="#fff"/><circle cx="400" cy="430" r="1.5" fill="#adf"/><circle cx="720" cy="425" r="1" fill="#8cf"/>
+  </g>
+  <ellipse cx="400" cy="60" rx="300" ry="40" fill="url(#au2)" opacity="0.4"/>
+  
+  <text x="400" y="55" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="32" fill="#00ffcc" filter="url(#g2)">取指阶段 IF Stage</text>
+  <text x="400" y="85" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#88ddff">Instruction Fetch · 从 I-Cache 获取指令</text>
+  
+  <g transform="translate(40, 120)">
+    <rect x="0" y="0" width="180" height="140" rx="10" fill="rgba(0,100,80,0.3)" stroke="#00ffaa" stroke-width="1.5"/>
+    <text x="90" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ffcc">PC 程序计数器</text>
+    <line x1="10" y1="35" x2="170" y2="35" stroke="#00ffaa" opacity="0.3"/>
+    <text x="15" y="60" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 32位地址寄存器</text>
+    <text x="15" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 顺序递增 (+4)</text>
+    <text x="15" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 分支目标更新</text>
+    <text x="15" y="120" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 异常向量跳转</text>
+  </g>
+  
+  <g transform="translate(250, 120)">
+    <rect x="0" y="0" width="180" height="140" rx="10" fill="rgba(0,60,100,0.3)" stroke="#00aaff" stroke-width="1.5"/>
+    <text x="90" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ccff">I-Cache 接口</text>
+    <line x1="10" y1="35" x2="170" y2="35" stroke="#00aaff" opacity="0.3"/>
+    <text x="15" y="60" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 发送取指请求</text>
+    <text x="15" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 接收指令数据</text>
+    <text x="15" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 处理缓存缺失</text>
+    <text x="15" y="120" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• 1周期命中延迟</text>
+  </g>
+  
+  <g transform="translate(460, 120)">
+    <rect x="0" y="0" width="180" height="140" rx="10" fill="rgba(80,60,0,0.3)" stroke="#ffcc00" stroke-width="1.5"/>
+    <text x="90" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#ffdd44">BPU 接口</text>
+    <line x1="10" y1="35" x2="170" y2="35" stroke="#ffcc00" opacity="0.3"/>
+    <text x="15" y="60" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">• 获取预测结果</text>
+    <text x="15" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">• 预测目标地址</text>
+    <text x="15" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">• 分支类型识别</text>
+    <text x="15" y="120" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">• 推测取指控制</text>
+  </g>
+  
+  <g transform="translate(670, 120)">
+    <rect x="0" y="0" width="90" height="140" rx="10" fill="rgba(0,100,100,0.3)" stroke="#00dddd" stroke-width="1.5"/>
+    <text x="45" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#00eeee">输出</text>
+    <line x1="10" y1="35" x2="80" y2="35" stroke="#00dddd" opacity="0.3"/>
+    <text x="10" y="60" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffff">指令</text>
+    <text x="10" y="80" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffff">PC值</text>
+    <text x="10" y="100" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffff">预测信息</text>
+    <text x="10" y="120" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffff">有效位</text>
+  </g>
+  
+  <g transform="translate(40, 290)">
+    <rect x="0" y="0" width="720" height="120" rx="8" fill="rgba(0,40,60,0.25)" stroke="#00aaff" stroke-width="1"/>
+    <text x="360" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#00ddff">取指流程</text>
+    <text x="20" y="55" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">1. PC 发送地址到 I-Cache 和 BPU</text>
+    <text x="20" y="75" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">2. I-Cache 返回指令，BPU 返回预测结果</text>
+    <text x="20" y="95" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">3. 根据预测结果更新 PC (顺序/分支目标)</text>
+    <text x="400" y="55" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">停顿条件:</text>
+    <text x="400" y="75" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">• I-Cache 缺失</text>
+    <text x="400" y="95" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffeebb">• 下游流水线满</text>
+    <text x="550" y="75" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffaaaa">• 分支误预测冲刷</text>
+    <text x="550" y="95" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffaaaa">• 异常处理</text>
+  </g>
+  
+  <text x="400" y="435" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#668888" opacity="0.7">IF Stage · 取指阶段</text>
+</svg>

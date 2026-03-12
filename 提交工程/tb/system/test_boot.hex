@@ -1,0 +1,8 @@
+// Simple test boot program for system-level testing
+// NOP sled followed by infinite loop
+@00000000
+13 00 00 00  // nop (addi x0, x0, 0)
+13 00 00 00  // nop
+13 00 00 00  // nop
+13 00 00 00  // nop
+6F 00 00 00  // jal x0, 0 (infinite loop)

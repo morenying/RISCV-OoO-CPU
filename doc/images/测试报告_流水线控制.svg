@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+    <radialGradient id="bg11" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" style="stop-color:#0f1a2e"/>
+      <stop offset="50%" style="stop-color:#080d15"/>
+      <stop offset="100%" style="stop-color:#020305"/>
+    </radialGradient>
+    <linearGradient id="aurora11a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ffc8"/><stop offset="100%" style="stop-color:#00a86b"/>
+    </linearGradient>
+    <linearGradient id="aurora11b" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff"/><stop offset="50%" style="stop-color:#00ffc8"/>
+      <stop offset="100%" style="stop-color:#00d4ff"/>
+      <animate attributeName="x1" values="0%;100%;0%" dur="6.5s" repeatCount="indefinite"/>
+    </linearGradient>
+    <linearGradient id="glass11" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.12)"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.02)"/>
+    </linearGradient>
+    <filter id="glow11" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur1"/><feGaussianBlur stdDeviation="3" result="blur2"/>
+      <feMerge><feMergeNode in="blur1"/><feMergeNode in="blur2"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="soft11" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2"/></filter>
+    <filter id="auroraBlur11" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="900" height="550" fill="url(#bg11)"/>
+  <ellipse cx="190" cy="125" rx="275" ry="88" fill="#00d4ff" opacity="0.03" filter="url(#auroraBlur11)"/>
+  <ellipse cx="710" cy="425" rx="245" ry="78" fill="#00ffc8" opacity="0.028" filter="url(#auroraBlur11)"/>
+
+  <path d="M-50,28 Q195,0 430,38 T950,18" stroke="#00d4ff" stroke-width="52" fill="none" opacity="0.1" filter="url(#auroraBlur11)">
+    <animate attributeName="d" values="M-50,28 Q195,0 430,38 T950,18;M-50,13 Q195,43 430,8 T950,33;M-50,28 Q195,0 430,38 T950,18" dur="8.5s" repeatCount="indefinite"/>
+  </path>
+  <path d="M-50,68 Q245,33 540,78 T950,53" stroke="#00ffc8" stroke-width="36" fill="none" opacity="0.072" filter="url(#auroraBlur11)">
+    <animate attributeName="d" values="M-50,68 Q245,33 540,78 T950,53;M-50,53 Q245,78 540,43 T950,68;M-50,68 Q245,33 540,78 T950,53" dur="10.5s" repeatCount="indefinite"/>
+  </path>
+  <circle cx="58" cy="48" r="1.82" fill="white" opacity="0.83"><animate attributeName="opacity" values="0.83;0.33;0.83" dur="2.72s" repeatCount="indefinite"/></circle>
+  <circle cx="148" cy="88" r="1.26" fill="white" opacity="0.63"/>
+  <circle cx="278" cy="45" r="2.06" fill="white" opacity="0.88"><animate attributeName="opacity" values="0.88;0.38;0.88" dur="2.34s" repeatCount="indefinite"/></circle>
+  <circle cx="418" cy="32" r="1.46" fill="white" opacity="0.68"/>
+  <circle cx="578" cy="65" r="1.76" fill="white" opacity="0.76"><animate attributeName="opacity" values="0.76;0.26;0.76" dur="3.16s" repeatCount="indefinite"/></circle>
+  <circle cx="718" cy="48" r="1.24" fill="white" opacity="0.58"/>
+  <circle cx="838" cy="82" r="1.94" fill="white" opacity="0.86"><animate attributeName="opacity" values="0.86;0.36;0.86" dur="2.64s" repeatCount="indefinite"/></circle>
+  <circle cx="98" cy="485" r="1.44" fill="white" opacity="0.66"/>
+  <circle cx="308" cy="505" r="1.74" fill="white" opacity="0.74"><animate attributeName="opacity" values="0.74;0.24;0.74" dur="3.04s" repeatCount="indefinite"/></circle>
+  <circle cx="548" cy="495" r="1.14" fill="white" opacity="0.54"/>
+  <circle cx="748" cy="515" r="1.54" fill="white" opacity="0.69"/>
+  <line x1="800" y1="62" x2="740" y2="122" stroke="url(#aurora11a)" stroke-width="2" stroke-linecap="round" opacity="0">
+    <animate attributeName="opacity" values="0;0.85;0" dur="4.3s" repeatCount="indefinite"/>
+  </line>
+  <rect x="100" y="160" width="700" height="280" rx="25" fill="url(#glass11)" stroke="url(#aurora11b)" stroke-width="1.5"/>
+  <circle cx="170" cy="230" r="35" fill="#00ffc8" filter="url(#glow11)" opacity="0.95">
+    <animate attributeName="r" values="35;38;35" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="170" y="242" text-anchor="middle" fill="#020305" font-size="32" font-weight="bold">✓</text>
+  <text x="480" y="225" text-anchor="middle" fill="url(#aurora11b)" font-size="42" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" filter="url(#glow11)">流水线控制测试</text>
+  <text x="480" y="265" text-anchor="middle" fill="#00d4ff" font-size="16" font-family="KaiTi, STKaiti, 楷体, serif" opacity="0.8">Property 14 · 流水线暂停正确性</text>
+  <text x="220" y="330" fill="rgba(255,255,255,0.5)" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif">测试总数</text>
+  <text x="220" y="370" fill="#00ffc8" font-size="38" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" filter="url(#soft11)">11</text>
+  <text x="450" y="330" fill="rgba(255,255,255,0.5)" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="middle">通过率</text>
+  <text x="450" y="370" fill="#00ffc8" font-size="38" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="middle" filter="url(#soft11)">100%</text>
+  <text x="680" y="330" fill="rgba(255,255,255,0.5)" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="end">失败数</text>
+  <text x="680" y="370" fill="#00ffc8" font-size="38" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="end" filter="url(#soft11)">0</text>
+  <g transform="translate(120, 400)">
+    <rect x="0" y="0" width="85" height="32" rx="8" fill="rgba(0,255,200,0.1)" stroke="#00ffc8" stroke-width="1"/>
+    <text x="42" y="22" text-anchor="middle" fill="#00ffc8" font-size="12" font-family="KaiTi, STKaiti, 楷体, serif">ROB满</text>
+  </g>
+  <g transform="translate(215, 400)">
+    <rect x="0" y="0" width="85" height="32" rx="8" fill="rgba(0,212,255,0.1)" stroke="#00d4ff" stroke-width="1"/>
+    <text x="42" y="22" text-anchor="middle" fill="#00d4ff" font-size="12" font-family="KaiTi, STKaiti, 楷体, serif">缓存缺失</text>
+  </g>
+  <g transform="translate(310, 400)">
+    <rect x="0" y="0" width="85" height="32" rx="8" fill="rgba(191,0,255,0.1)" stroke="#bf00ff" stroke-width="1"/>
+    <text x="42" y="22" text-anchor="middle" fill="#bf00ff" font-size="12" font-family="KaiTi, STKaiti, 楷体, serif">RS满</text>
+  </g>
+  <g transform="translate(405, 400)">
+    <rect x="0" y="0" width="85" height="32" rx="8" fill="rgba(0,255,200,0.1)" stroke="#00ffc8" stroke-width="1"/>
+    <text x="42" y="22" text-anchor="middle" fill="#00ffc8" font-size="12" font-family="KaiTi, STKaiti, 楷体, serif">误预测</text>
+  </g>
+  <g transform="translate(500, 400)">
+    <rect x="0" y="0" width="85" height="32" rx="8" fill="rgba(0,212,255,0.1)" stroke="#00d4ff" stroke-width="1"/>
+    <text x="42" y="22" text-anchor="middle" fill="#00d4ff" font-size="12" font-family="KaiTi, STKaiti, 楷体, serif">异常刷新</text>
+  </g>
+  <g transform="translate(595, 400)">
+    <rect x="0" y="0" width="85" height="32" rx="8" fill="rgba(191,0,255,0.1)" stroke="#bf00ff" stroke-width="1"/>
+    <text x="42" y="22" text-anchor="middle" fill="#bf00ff" font-size="12" font-family="KaiTi, STKaiti, 楷体, serif">MRET</text>
+  </g>
+  <text x="450" y="490" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="12" font-family="KaiTi, STKaiti, 楷体, serif">
+    7级流水线 · 暂停/刷新逻辑 · WB永不暂停
+  </text>
+</svg>

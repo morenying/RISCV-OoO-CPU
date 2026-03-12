@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/><stop offset="50%" style="stop-color:#0d2040"/><stop offset="100%" style="stop-color:#051a1a"/>
+    </linearGradient>
+    <linearGradient id="au9" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ffaa;stop-opacity:0"/><stop offset="50%" style="stop-color:#00ffcc;stop-opacity:0.5"/><stop offset="100%" style="stop-color:#00aaff;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="g9"><feGaussianBlur stdDeviation="2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg9)"/>
+  <g opacity="0.7">
+    <circle cx="40" cy="30" r="1.5" fill="#fff"/><circle cx="150" cy="50" r="1" fill="#adf"/><circle cx="300" cy="25" r="2" fill="#fff"/>
+    <circle cx="500" cy="45" r="1" fill="#8cf"/><circle cx="650" cy="35" r="1.5" fill="#fff"/><circle cx="760" cy="55" r="1" fill="#adf"/>
+    <circle cx="80" cy="420" r="1" fill="#fff"/><circle cx="400" cy="430" r="1.5" fill="#adf"/><circle cx="720" cy="425" r="1" fill="#8cf"/>
+  </g>
+  <ellipse cx="400" cy="60" rx="300" ry="40" fill="url(#au9)" opacity="0.4"/>
+  
+  <text x="400" y="55" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="32" fill="#00ffcc" filter="url(#g9)">I-Cache 指令缓存</text>
+  <text x="400" y="85" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#00ffaa">Instruction Cache · 4KB 4路组相联</text>
+  
+  <g transform="translate(40, 115)">
+    <rect x="0" y="0" width="200" height="180" rx="10" fill="rgba(0,100,80,0.3)" stroke="#00ffaa" stroke-width="1.5"/>
+    <text x="100" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ffcc">基本参数</text>
+    <line x1="10" y1="35" x2="190" y2="35" stroke="#00ffaa" opacity="0.3"/>
+    <text x="15" y="58" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 容量: 4KB</text>
+    <text x="15" y="78" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 组织: 4路组相联</text>
+    <text x="15" y="98" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 块大小: 32字节</text>
+    <text x="15" y="118" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 组数: 32组</text>
+    <text x="15" y="138" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 替换: LRU</text>
+    <text x="15" y="158" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">• 只读缓存</text>
+  </g>
+  
+  <g transform="translate(260, 115)">
+    <rect x="0" y="0" width="280" height="180" rx="10" fill="rgba(0,60,100,0.3)" stroke="#00aaff" stroke-width="1.5"/>
+    <text x="140" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#00ccff">地址分解</text>
+    <line x1="10" y1="35" x2="270" y2="35" stroke="#00aaff" opacity="0.3"/>
+    
+    <g transform="translate(15, 50)">
+      <rect x="0" y="0" width="250" height="30" rx="4" fill="rgba(0,170,255,0.15)" stroke="#00aaff"/>
+      <text x="5" y="20" font-family="monospace" font-size="10" fill="#aaddff">Tag[31:12] | Index[11:5] | Offset[4:0]</text>
+    </g>
+    
+    <text x="15" y="105" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• Tag: 20位 (地址高位)</text>
+    <text x="15" y="125" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• Index: 7位 (组索引)</text>
+    <text x="15" y="145" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">• Offset: 5位 (块内偏移)</text>
+    <text x="15" y="165" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#88aadd">32组 × 4路 × 32B = 4KB</text>
+  </g>
+  
+  <g transform="translate(560, 115)">
+    <rect x="0" y="0" width="200" height="180" rx="10" fill="rgba(80,80,0,0.3)" stroke="#cccc00" stroke-width="1.5"/>
+    <text x="100" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="16" fill="#dddd44">性能指标</text>
+    <line x1="10" y1="35" x2="190" y2="35" stroke="#cccc00" opacity="0.3"/>
+    <text x="15" y="58" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#eeeebb">• 命中延迟: 1周期</text>
+    <text x="15" y="78" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#eeeebb">• 缺失惩罚: ~10周期</text>
+    <text x="15" y="98" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#eeeebb">• 目标命中率: >95%</text>
+    <text x="15" y="118" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#eeeebb">• 带宽: 32位/周期</text>
+    <text x="15" y="138" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#eeeebb">• 突发填充: 8拍</text>
+  </g>
+  
+  <g transform="translate(40, 310)">
+    <rect x="0" y="0" width="720" height="100" rx="8" fill="rgba(0,40,60,0.25)" stroke="#00ffaa" stroke-width="1"/>
+    <text x="360" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#00ffcc">访问流程</text>
+    <text x="20" y="50" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaffcc">命中: PC → Index选组 → 4路并行Tag比较 → 命中选择 → 返回指令 (1周期)</text>
+    <text x="20" y="72" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#ffaaaa">缺失: 发送AXI请求 → 等待内存响应 → 填充缓存行 → 返回指令 + 更新LRU</text>
+    <text x="20" y="92" font-family="KaiTi, STKaiti, 楷体, serif" font-size="12" fill="#aaddff">特性: 与BPU同步访问 · 支持非对齐取指 · 缺失时流水线停顿</text>
+  </g>
+  
+  <text x="400" y="435" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#668888" opacity="0.7">I-Cache · 指令缓存</text>
+</svg>

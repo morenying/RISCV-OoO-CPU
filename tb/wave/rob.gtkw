@@ -1,0 +1,42 @@
+[*]
+[*] GTKWave Analyzer - ROB Test
+[*]
+[dumpfile] "sim/waves/rob_wave.vcd"
+[savefile] "tb/wave/rob.gtkw"
+[timestart] 0
+[size] 1400 800
+[pos] -1 -1
+*-16.000000 25 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_rob_wave.
+[sst_width] 250
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@28
+tb_rob_wave.clk
+tb_rob_wave.rst_n
+tb_rob_wave.flush_i
+tb_rob_wave.alloc_req_i
+tb_rob_wave.alloc_ready_o
+@22
+tb_rob_wave.alloc_idx_o[4:0]
+tb_rob_wave.alloc_rd_arch_i[4:0]
+tb_rob_wave.alloc_rd_phys_i[5:0]
+@28
+tb_rob_wave.complete_valid_i
+@22
+tb_rob_wave.complete_idx_i[4:0]
+tb_rob_wave.complete_result_i[31:0]
+@28
+tb_rob_wave.commit_valid_o
+tb_rob_wave.commit_ready_i
+@22
+tb_rob_wave.commit_idx_o[4:0]
+tb_rob_wave.commit_result_o[31:0]
+@28
+tb_rob_wave.empty_o
+tb_rob_wave.full_o
+@22
+tb_rob_wave.count_o[5:0]
+[pattern_trace] 1
+[pattern_trace] 0

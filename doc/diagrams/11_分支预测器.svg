@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg11" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a2e"/><stop offset="50%" style="stop-color:#0d2040"/><stop offset="100%" style="stop-color:#051a1a"/>
+    </linearGradient>
+    <linearGradient id="au11" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0"/><stop offset="50%" style="stop-color:#00ffaa;stop-opacity:0.5"/><stop offset="100%" style="stop-color:#00ccff;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="g11"><feGaussianBlur stdDeviation="2"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg11)"/>
+  <g opacity="0.7">
+    <circle cx="40" cy="30" r="1.5" fill="#fff"/><circle cx="150" cy="50" r="1" fill="#adf"/><circle cx="300" cy="25" r="2" fill="#fff"/>
+    <circle cx="500" cy="45" r="1" fill="#8cf"/><circle cx="650" cy="35" r="1.5" fill="#fff"/><circle cx="760" cy="55" r="1" fill="#adf"/>
+    <circle cx="80" cy="420" r="1" fill="#fff"/><circle cx="400" cy="430" r="1.5" fill="#adf"/><circle cx="720" cy="425" r="1" fill="#8cf"/>
+  </g>
+  <ellipse cx="400" cy="60" rx="300" ry="40" fill="url(#au11)" opacity="0.4"/>
+  
+  <text x="400" y="55" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="32" fill="#00ffaa" filter="url(#g11)">BPU 分支预测单元</text>
+  <text x="400" y="85" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#00ff88">Branch Prediction Unit · 混合预测器架构</text>
+  
+  <g transform="translate(40, 115)">
+    <rect x="0" y="0" width="170" height="130" rx="10" fill="rgba(0,100,80,0.3)" stroke="#00ffaa" stroke-width="1.5"/>
+    <text x="85" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#00ffcc">TAGE 预测器</text>
+    <line x1="10" y1="35" x2="160" y2="35" stroke="#00ffaa" opacity="0.3"/>
+    <text x="15" y="55" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">• 标签几何历史</text>
+    <text x="15" y="73" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">• 多表级联</text>
+    <text x="15" y="91" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">• 全局历史索引</text>
+    <text x="15" y="109" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">• 高精度预测</text>
+  </g>
+  
+  <g transform="translate(225, 115)">
+    <rect x="0" y="0" width="170" height="130" rx="10" fill="rgba(80,80,0,0.3)" stroke="#cccc00" stroke-width="1.5"/>
+    <text x="85" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#dddd44">双模态预测器</text>
+    <line x1="10" y1="35" x2="160" y2="35" stroke="#cccc00" opacity="0.3"/>
+    <text x="15" y="55" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#eeeebb">• 2-bit 饱和计数</text>
+    <text x="15" y="73" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#eeeebb">• PC 索引</text>
+    <text x="15" y="91" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#eeeebb">• 基础预测器</text>
+    <text x="15" y="109" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#eeeebb">• 低延迟</text>
+  </g>
+  
+  <g transform="translate(410, 115)">
+    <rect x="0" y="0" width="170" height="130" rx="10" fill="rgba(80,0,80,0.3)" stroke="#ff88ff" stroke-width="1.5"/>
+    <text x="85" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#ffaaff">循环预测器</text>
+    <line x1="10" y1="35" x2="160" y2="35" stroke="#ff88ff" opacity="0.3"/>
+    <text x="15" y="55" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffccff">• 循环检测</text>
+    <text x="15" y="73" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffccff">• 迭代计数</text>
+    <text x="15" y="91" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffccff">• 退出预测</text>
+    <text x="15" y="109" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ffccff">• 置信度评估</text>
+  </g>
+  
+  <g transform="translate(595, 115)">
+    <rect x="0" y="0" width="165" height="130" rx="10" fill="rgba(0,80,100,0.3)" stroke="#00aaff" stroke-width="1.5"/>
+    <text x="82" y="25" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="14" fill="#00ccff">BTB + RAS</text>
+    <line x1="10" y1="35" x2="155" y2="35" stroke="#00aaff" opacity="0.3"/>
+    <text x="15" y="55" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaddff">• BTB 256项</text>
+    <text x="15" y="73" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaddff">• 目标地址缓存</text>
+    <text x="15" y="91" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaddff">• RAS 8项</text>
+    <text x="15" y="109" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaddff">• 返回地址栈</text>
+  </g>
+  
+  <g transform="translate(40, 260)">
+    <rect x="0" y="0" width="350" height="80" rx="8" fill="rgba(60,60,0,0.25)" stroke="#aaaa00" stroke-width="1"/>
+    <text x="175" y="22" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#cccc44">全局历史寄存器 GHR</text>
+    <text x="20" y="45" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ddddaa">• 64-bit 分支历史</text>
+    <text x="20" y="63" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ddddaa">• 推测更新 + 检查点恢复</text>
+    <text x="200" y="45" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ddddaa">• 分支结果移位</text>
+    <text x="200" y="63" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#ddddaa">• 误预测时回滚</text>
+  </g>
+  
+  <g transform="translate(410, 260)">
+    <rect x="0" y="0" width="350" height="80" rx="8" fill="rgba(0,60,60,0.25)" stroke="#00aaaa" stroke-width="1"/>
+    <text x="175" y="22" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#00cccc">预测性能</text>
+    <text x="20" y="45" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aadddd">• 整体准确率: >90%</text>
+    <text x="20" y="63" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aadddd">• 条件分支: >92%</text>
+    <text x="200" y="45" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aadddd">• 函数返回: >98%</text>
+    <text x="200" y="63" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aadddd">• 预测延迟: 1周期</text>
+  </g>
+  
+  <g transform="translate(40, 355)">
+    <rect x="0" y="0" width="720" height="55" rx="8" fill="rgba(0,40,60,0.25)" stroke="#00ffaa" stroke-width="1"/>
+    <text x="360" y="20" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="13" fill="#00ffcc">预测流程</text>
+    <text x="20" y="42" font-family="KaiTi, STKaiti, 楷体, serif" font-size="11" fill="#aaffcc">PC → BTB查询(是否分支) → TAGE/Bimodal预测(方向) → BTB/RAS(目标) → 输出预测结果</text>
+  </g>
+  
+  <text x="400" y="435" text-anchor="middle" font-family="KaiTi, STKaiti, 楷体, serif" font-size="10" fill="#668888" opacity="0.7">BPU · 分支预测单元</text>
+</svg>

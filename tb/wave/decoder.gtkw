@@ -1,0 +1,39 @@
+[*]
+[*] GTKWave Analyzer - Decoder Unit Test
+[*]
+[dumpfile] "sim/waves/decoder_wave.vcd"
+[savefile] "tb/wave/decoder.gtkw"
+[timestart] 0
+[size] 1400 800
+[pos] -1 -1
+*-16.000000 25 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_decoder_wave.
+[sst_width] 250
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@22
+tb_decoder_wave.instr_i[31:0]
+tb_decoder_wave.pc_i[31:0]
+@23
+tb_decoder_wave.opcode_o[6:0]
+tb_decoder_wave.funct3_o[2:0]
+tb_decoder_wave.funct7_o[6:0]
+@22
+tb_decoder_wave.rd_o[4:0]
+tb_decoder_wave.rs1_o[4:0]
+tb_decoder_wave.rs2_o[4:0]
+tb_decoder_wave.imm_o[31:0]
+@28
+tb_decoder_wave.reg_write_o
+tb_decoder_wave.mem_read_o
+tb_decoder_wave.mem_write_o
+tb_decoder_wave.branch_o
+tb_decoder_wave.jump_o
+@22
+tb_decoder_wave.alu_op_o[3:0]
+tb_decoder_wave.fu_type_o[2:0]
+@28
+tb_decoder_wave.illegal_instr_o
+[pattern_trace] 1
+[pattern_trace] 0

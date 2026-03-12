@@ -1,0 +1,53 @@
+[*]
+[*] GTKWave Analyzer - Pipeline Control Test
+[*]
+[dumpfile] "sim/waves/pipeline_wave.vcd"
+[savefile] "tb/wave/pipeline.gtkw"
+[timestart] 0
+[size] 1400 800
+[pos] -1 -1
+*-16.000000 25 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_pipeline_wave.
+[sst_width] 250
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@28
+tb_pipeline_wave.clk
+tb_pipeline_wave.rst_n
+@200
+-Resource Status
+@28
+tb_pipeline_wave.rob_full_i
+tb_pipeline_wave.free_list_empty_i
+tb_pipeline_wave.icache_miss_i
+tb_pipeline_wave.dcache_miss_i
+@200
+-Stall Signals
+@28
+tb_pipeline_wave.stall_if_o
+tb_pipeline_wave.stall_id_o
+tb_pipeline_wave.stall_rn_o
+tb_pipeline_wave.stall_is_o
+tb_pipeline_wave.stall_ex_o
+tb_pipeline_wave.stall_mem_o
+@200
+-Flush Signals
+@28
+tb_pipeline_wave.flush_if_o
+tb_pipeline_wave.flush_id_o
+tb_pipeline_wave.flush_rn_o
+tb_pipeline_wave.flush_is_o
+tb_pipeline_wave.flush_ex_o
+@200
+-Control Events
+@28
+tb_pipeline_wave.branch_mispredict_i
+tb_pipeline_wave.exception_i
+tb_pipeline_wave.mret_i
+tb_pipeline_wave.redirect_valid_o
+@22
+tb_pipeline_wave.redirect_pc_o[31:0]
+tb_pipeline_wave.branch_target_i[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

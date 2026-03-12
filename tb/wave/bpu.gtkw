@@ -1,0 +1,42 @@
+[*]
+[*] GTKWave Analyzer - BPU Test
+[*]
+[dumpfile] "sim/waves/bpu_wave.vcd"
+[savefile] "tb/wave/bpu.gtkw"
+[timestart] 0
+[size] 1400 800
+[pos] -1 -1
+*-16.000000 25 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_bpu_wave.
+[sst_width] 250
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@28
+tb_bpu_wave.clk
+tb_bpu_wave.rst_n
+tb_bpu_wave.pred_req_i
+tb_bpu_wave.pred_valid_o
+tb_bpu_wave.pred_taken_o
+@22
+tb_bpu_wave.pred_pc_i[31:0]
+tb_bpu_wave.pred_target_o[31:0]
+tb_bpu_wave.pred_type_o[1:0]
+@28
+tb_bpu_wave.checkpoint_i
+@22
+tb_bpu_wave.checkpoint_id_i[2:0]
+@28
+tb_bpu_wave.recover_i
+@22
+tb_bpu_wave.recover_id_i[2:0]
+@28
+tb_bpu_wave.update_valid_i
+tb_bpu_wave.update_taken_i
+tb_bpu_wave.update_mispredict_i
+@22
+tb_bpu_wave.update_pc_i[31:0]
+tb_bpu_wave.update_target_i[31:0]
+tb_bpu_wave.ghr_o[63:0]
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+    <radialGradient id="bg3" cx="40%" cy="35%" r="70%">
+      <stop offset="0%" style="stop-color:#0f1a2e"/>
+      <stop offset="50%" style="stop-color:#080d18"/>
+      <stop offset="100%" style="stop-color:#020308"/>
+    </radialGradient>
+    
+    <linearGradient id="aurora3a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#bf00ff"/>
+    </linearGradient>
+    
+    <linearGradient id="aurora3b" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ffc8"/>
+      <stop offset="50%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#00ffc8"/>
+      <animate attributeName="x1" values="0%;100%;0%" dur="6s" repeatCount="indefinite"/>
+    </linearGradient>
+    
+    <linearGradient id="glass3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.1)"/>
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.02)"/>
+    </linearGradient>
+    
+    <filter id="glow3" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur1"/>
+      <feGaussianBlur stdDeviation="3" result="blur2"/>
+      <feMerge><feMergeNode in="blur1"/><feMergeNode in="blur2"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    
+    <filter id="auroraBlur3" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  
+  <rect width="900" height="550" fill="url(#bg3)"/>
+  
+  <!-- 星云 -->
+  <ellipse cx="180" cy="160" rx="260" ry="95" fill="#00d4ff" opacity="0.03" filter="url(#auroraBlur3)"/>
+  <ellipse cx="720" cy="400" rx="230" ry="85" fill="#bf00ff" opacity="0.025" filter="url(#auroraBlur3)"/>
+  
+  <!-- 极光 -->
+  <path d="M-50,45 Q200,15 450,55 T950,35" stroke="#00ffc8" stroke-width="55" fill="none" opacity="0.11" filter="url(#auroraBlur3)">
+    <animate attributeName="d" values="M-50,45 Q200,15 450,55 T950,35;M-50,30 Q200,60 450,25 T950,50;M-50,45 Q200,15 450,55 T950,35" dur="10s" repeatCount="indefinite"/>
+  </path>
+  <path d="M-50,85 Q260,50 560,95 T950,70" stroke="#00d4ff" stroke-width="38" fill="none" opacity="0.08" filter="url(#auroraBlur3)">
+    <animate attributeName="d" values="M-50,85 Q260,50 560,95 T950,70;M-50,70 Q260,95 560,60 T950,85;M-50,85 Q260,50 560,95 T950,70" dur="12s" repeatCount="indefinite"/>
+  </path>
+  <path d="M-50,120 Q320,85 680,125 T950,105" stroke="#bf00ff" stroke-width="22" fill="none" opacity="0.05" filter="url(#auroraBlur3)">
+    <animate attributeName="d" values="M-50,120 Q320,85 680,125 T950,105;M-50,105 Q320,125 680,90 T950,120;M-50,120 Q320,85 680,125 T950,105" dur="14s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- 星星 -->
+  <circle cx="65" cy="50" r="1.9" fill="white" opacity="0.85"><animate attributeName="opacity" values="0.85;0.3;0.85" dur="2.9s" repeatCount="indefinite"/></circle>
+  <circle cx="170" cy="90" r="1.3" fill="white" opacity="0.6"/>
+  <circle cx="300" cy="60" r="2" fill="white" opacity="0.9"><animate attributeName="opacity" values="0.9;0.35;0.9" dur="3.3s" repeatCount="indefinite"/></circle>
+  <circle cx="460" cy="48" r="1.5" fill="white" opacity="0.7"/>
+  <circle cx="600" cy="82" r="1.8" fill="white" opacity="0.8"><animate attributeName="opacity" values="0.8;0.3;0.8" dur="3.7s" repeatCount="indefinite"/></circle>
+  <circle cx="740" cy="58" r="1.4" fill="white" opacity="0.65"/>
+  <circle cx="850" cy="98" r="2" fill="white" opacity="0.9"><animate attributeName="opacity" values="0.9;0.4;0.9" dur="2.6s" repeatCount="indefinite"/></circle>
+  <circle cx="110" cy="505" r="1.6" fill="white" opacity="0.7"/>
+  <circle cx="330" cy="520" r="1.8" fill="white" opacity="0.8"><animate attributeName="opacity" values="0.8;0.35;0.8" dur="3.1s" repeatCount="indefinite"/></circle>
+  <circle cx="580" cy="512" r="1.3" fill="white" opacity="0.6"/>
+  <circle cx="780" cy="530" r="1.7" fill="white" opacity="0.75"/>
+  
+  <!-- 流星 -->
+  <line x1="810" y1="65" x2="750" y2="125" stroke="url(#aurora3a)" stroke-width="2" stroke-linecap="round" opacity="0">
+    <animate attributeName="opacity" values="0;0.85;0" dur="4.2s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- 除法符号装饰 -->
+  <text x="80" y="285" fill="#00d4ff" font-size="65" font-weight="bold" opacity="0.12" filter="url(#glow3)">÷</text>
+  
+  <!-- 主卡片 -->
+  <rect x="100" y="160" width="700" height="280" rx="25" fill="url(#glass3)" stroke="url(#aurora3b)" stroke-width="1.5"/>
+  
+  <!-- 状态指示灯 -->
+  <circle cx="170" cy="230" r="35" fill="#00ffc8" filter="url(#glow3)" opacity="0.95">
+    <animate attributeName="r" values="35;38;35" dur="1.9s" repeatCount="indefinite"/>
+  </circle>
+  <text x="170" y="242" text-anchor="middle" fill="#020308" font-size="32" font-weight="bold">✓</text>
+  
+  <!-- 标题 -->
+  <text x="480" y="225" text-anchor="middle" fill="url(#aurora3b)" font-size="42" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" filter="url(#glow3)">除法器单元测试</text>
+  <text x="480" y="265" text-anchor="middle" fill="#00d4ff" font-size="16" font-family="KaiTi, STKaiti, 楷体, serif" opacity="0.8">RV32M扩展 · DIV/DIVU/REM/REMU</text>
+  
+  <!-- 统计数据 -->
+  <text x="220" y="330" fill="rgba(255,255,255,0.5)" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif">测试总数</text>
+  <text x="220" y="370" fill="#00ffc8" font-size="38" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif">105</text>
+  
+  <text x="450" y="330" fill="rgba(255,255,255,0.5)" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="middle">通过率</text>
+  <text x="450" y="370" fill="#00ffc8" font-size="38" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="middle">100%</text>
+  
+  <text x="680" y="330" fill="rgba(255,255,255,0.5)" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="end">最大延迟</text>
+  <text x="680" y="370" fill="#00d4ff" font-size="38" font-weight="bold" font-family="KaiTi, STKaiti, 楷体, serif" text-anchor="end">32周期</text>
+  
+  <!-- 边界测试标签 -->
+  <g transform="translate(130, 400)">
+    <rect x="0" y="0" width="130" height="35" rx="10" fill="rgba(0,255,200,0.1)" stroke="#00ffc8" stroke-width="1"/>
+    <text x="65" y="24" text-anchor="middle" fill="#00ffc8" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif">除零处理</text>
+  </g>
+  <g transform="translate(280, 400)">
+    <rect x="0" y="0" width="130" height="35" rx="10" fill="rgba(0,212,255,0.1)" stroke="#00d4ff" stroke-width="1"/>
+    <text x="65" y="24" text-anchor="middle" fill="#00d4ff" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif">余数返回</text>
+  </g>
+  <g transform="translate(430, 400)">
+    <rect x="0" y="0" width="130" height="35" rx="10" fill="rgba(191,0,255,0.1)" stroke="#bf00ff" stroke-width="1"/>
+    <text x="65" y="24" text-anchor="middle" fill="#bf00ff" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif">有符号溢出</text>
+  </g>
+  <g transform="translate(580, 400)">
+    <rect x="0" y="0" width="130" height="35" rx="10" fill="rgba(0,255,200,0.1)" stroke="#00ffc8" stroke-width="1"/>
+    <text x="65" y="24" text-anchor="middle" fill="#00ffc8" font-size="14" font-family="KaiTi, STKaiti, 楷体, serif">基本运算</text>
+  </g>
+  
+  <!-- 底部说明 -->
+  <text x="450" y="490" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="12" font-family="KaiTi, STKaiti, 楷体, serif">
+    可变延迟模型 · RISC-V规范边界情况完整覆盖
+  </text>
+</svg>

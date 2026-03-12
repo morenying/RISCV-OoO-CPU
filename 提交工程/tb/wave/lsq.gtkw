@@ -1,0 +1,50 @@
+[*]
+[*] GTKWave Analyzer - LSQ Test
+[*]
+[dumpfile] "sim/waves/lsq_wave.vcd"
+[savefile] "tb/wave/lsq.gtkw"
+[timestart] 0
+[size] 1400 800
+[pos] -1 -1
+*-16.000000 25 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_lsq_wave.
+[sst_width] 250
+[signals_width] 200
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@28
+tb_lsq_wave.clk
+tb_lsq_wave.rst_n
+tb_lsq_wave.flush_i
+tb_lsq_wave.ld_alloc_valid_i
+tb_lsq_wave.ld_alloc_ready_o
+@22
+tb_lsq_wave.ld_alloc_idx_o[2:0]
+@28
+tb_lsq_wave.st_alloc_valid_i
+tb_lsq_wave.st_alloc_ready_o
+@22
+tb_lsq_wave.st_alloc_idx_o[2:0]
+@28
+tb_lsq_wave.ld_addr_valid_i
+@22
+tb_lsq_wave.ld_addr_i[31:0]
+@28
+tb_lsq_wave.st_addr_valid_i
+@22
+tb_lsq_wave.st_addr_i[31:0]
+tb_lsq_wave.st_data_i[31:0]
+@28
+tb_lsq_wave.dcache_rd_valid_o
+tb_lsq_wave.dcache_wr_valid_o
+@22
+tb_lsq_wave.dcache_rd_addr_o[31:0]
+tb_lsq_wave.dcache_wr_addr_o[31:0]
+@28
+tb_lsq_wave.ld_complete_valid_o
+@22
+tb_lsq_wave.ld_complete_data_o[31:0]
+@28
+tb_lsq_wave.violation_o
+[pattern_trace] 1
+[pattern_trace] 0
