@@ -102,8 +102,13 @@ module decoder (
     assign opcode_o = instr_i[6:0];
     assign rd_o     = instr_i[11:7];
     assign funct3_o = instr_i[14:12];
-    assign rs1_o    = instr_i[19:15];
-    assign rs2_o    = instr_i[24:20];
+    // U-type (LUI/AUIPC) and J-type (JAL) have no rs1/rs2 fields;
+    // zero them to avoid false dependencies in OoO pipeline
+    wire no_rs = (instr_i[6:0] == 7'b0110111)   // LUI
+              || (instr_i[6:0] == 7'b0010111)   // AUIPC
+              || (instr_i[6:0] == 7'b1101111);  // JAL
+    assign rs1_o    = no_rs ? 5'd0 : instr_i[19:15];
+    assign rs2_o    = no_rs ? 5'd0 : instr_i[24:20];
     assign funct7_o = instr_i[31:25];
     
     //=========================================================

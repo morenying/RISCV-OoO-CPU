@@ -212,7 +212,7 @@ module tb_decoder;
         check_result("JALR basic", 0, 1, 0, 0, 0, 1, FU_BR);
         
         // Invalid JALR (funct3 != 0)
-        instr = 32'h001100E7;  // Invalid funct3
+        instr = 32'h001110E7;  // funct3=001, invalid for JALR
         #1;
         check_result("JALR invalid funct3", 1, 0, 0, 0, 0, 0, FU_ALU);
         
