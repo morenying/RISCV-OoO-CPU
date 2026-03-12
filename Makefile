@@ -19,7 +19,9 @@ LOG_DIR     := $(SIM_DIR)/logs
 RTL_COMMON  := $(wildcard $(RTL_DIR)/common/*.v)
 RTL_CORE    := $(wildcard $(RTL_DIR)/core/*.v)
 RTL_CACHE   := $(wildcard $(RTL_DIR)/cache/*.v)
-RTL_BPU     := $(wildcard $(RTL_DIR)/bpu/*.v)
+RTL_BPU     := $(RTL_DIR)/bpu/bpu.v $(RTL_DIR)/bpu/tage_predictor.v $(RTL_DIR)/bpu/tage_table.v \
+              $(RTL_DIR)/bpu/btb.v $(RTL_DIR)/bpu/ras.v $(RTL_DIR)/bpu/loop_predictor.v \
+              $(RTL_DIR)/bpu/bimodal_predictor.v
 RTL_MEM     := $(wildcard $(RTL_DIR)/mem/*.v)
 RTL_TOP     := $(RTL_DIR)/cpu_core_top.v
 
@@ -219,7 +221,9 @@ test_bpu: dirs
 ifeq ($(SIM),iverilog)
 	$(IVERILOG) $(IV_FLAGS) -o $(SIM_DIR)/test_bpu.vvp \
 		$(RTL_DIR)/common/cpu_defines.vh \
-		$(RTL_DIR)/bpu/*.v \
+		$(RTL_DIR)/bpu/bpu.v $(RTL_DIR)/bpu/tage_predictor.v $(RTL_DIR)/bpu/tage_table.v \
+		$(RTL_DIR)/bpu/btb.v $(RTL_DIR)/bpu/ras.v $(RTL_DIR)/bpu/loop_predictor.v \
+		$(RTL_DIR)/bpu/bimodal_predictor.v \
 		$(TB_DIR)/unit/tb_bpu.v
 	$(VVP) $(SIM_DIR)/test_bpu.vvp | tee $(LOG_DIR)/test_bpu.log
 endif
@@ -324,7 +328,9 @@ ifeq ($(SIM),iverilog)
 		$(RTL_DIR)/common/cpu_defines.vh \
 		$(RTL_DIR)/core/*.v \
 		$(RTL_DIR)/cache/*.v \
-		$(RTL_DIR)/bpu/*.v \
+		$(RTL_DIR)/bpu/bpu.v $(RTL_DIR)/bpu/tage_predictor.v $(RTL_DIR)/bpu/tage_table.v \
+		$(RTL_DIR)/bpu/btb.v $(RTL_DIR)/bpu/ras.v $(RTL_DIR)/bpu/loop_predictor.v \
+		$(RTL_DIR)/bpu/bimodal_predictor.v \
 		$(RTL_DIR)/mem/*.v \
 		$(RTL_DIR)/bus/*.v \
 		$(TB_DIR)/integration/tb_instr_tests.v
@@ -533,7 +539,9 @@ wave_rs: dirs
 wave_bpu: dirs
 	$(IVERILOG) $(IV_FLAGS) -o $(SIM_DIR)/wave_bpu.vvp \
 		$(RTL_DIR)/common/cpu_defines.vh \
-		$(RTL_DIR)/bpu/*.v \
+		$(RTL_DIR)/bpu/bpu.v $(RTL_DIR)/bpu/tage_predictor.v $(RTL_DIR)/bpu/tage_table.v \
+		$(RTL_DIR)/bpu/btb.v $(RTL_DIR)/bpu/ras.v $(RTL_DIR)/bpu/loop_predictor.v \
+		$(RTL_DIR)/bpu/bimodal_predictor.v \
 		$(WAVE_TB_DIR)/tb_bpu_wave.v
 	$(VVP) $(SIM_DIR)/wave_bpu.vvp
 	@echo "Wave file: sim/waves/bpu_wave.vcd"

@@ -83,7 +83,11 @@ jobs:
       - name: Run BPU Tests
         run: |
           iverilog -g2001 -Wall -Irtl/common -Irtl -o sim/test_bpu.vvp \
-            rtl/common/cpu_defines.vh rtl/bpu/*.v tb/unit/tb_bpu.v
+            rtl/common/cpu_defines.vh \
+            rtl/bpu/bpu.v rtl/bpu/tage_predictor.v rtl/bpu/tage_table.v \
+            rtl/bpu/btb.v rtl/bpu/ras.v rtl/bpu/loop_predictor.v \
+            rtl/bpu/bimodal_predictor.v \
+            tb/unit/tb_bpu.v
           vvp sim/test_bpu.vvp | tee sim/logs/test_bpu.log
           
       - name: Run Cache Tests
@@ -154,7 +158,11 @@ jobs:
         run: |
           iverilog -g2001 -Wall -Irtl/common -Irtl -o sim/test_instr.vvp \
             rtl/common/cpu_defines.vh \
-            rtl/core/*.v rtl/cache/*.v rtl/bpu/*.v rtl/mem/*.v rtl/bus/*.v \
+            rtl/core/*.v rtl/cache/*.v \
+            rtl/bpu/bpu.v rtl/bpu/tage_predictor.v rtl/bpu/tage_table.v \
+            rtl/bpu/btb.v rtl/bpu/ras.v rtl/bpu/loop_predictor.v \
+            rtl/bpu/bimodal_predictor.v \
+            rtl/mem/*.v rtl/bus/*.v \
             tb/integration/tb_instr_tests.v
           vvp sim/test_instr.vvp | tee sim/logs/test_instr.log
           
